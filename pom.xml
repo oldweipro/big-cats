@@ -2,18 +2,17 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.oldwei</groupId>
-    <artifactId>fast-boot</artifactId>
+    <groupId>com.ultronvision.bigcats</groupId>
+    <artifactId>big-cats</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>fast-boot</name>
-    <description>fast-boot快速开发脚手架</description>
+    <name>big-cats</name>
+    <description>Big-Cats 大猫:终极猎食者 快速开发框架</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.4.5</version>
         <relativePath/>
-        <!-- lookup parent from repository -->
     </parent>
 
     <properties>

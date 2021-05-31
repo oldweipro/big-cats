@@ -1,4 +1,4 @@
-package com.ultronvision.fast;
+package com.ultronvision.bigcats;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
