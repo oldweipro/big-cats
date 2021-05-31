@@ -1,0 +1,19 @@
+spring:
+  datasource:
+    dynamic:
+      # 是否开启 SQL日志输出，生产环境建议关闭，有性能损耗
+      p6spy: true
+      hikari:
+        connection-timeout: 30000
+        max-lifetime: 1800000
+        max-pool-size: 15
+        min-idle: 5
+        connection-test-query: select 1
+        pool-name: BigCatsHikariCP
+      primary: master #设置默认的数据源或者数据源组,默认值即为master
+      strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
+      datasource:
+        master:
+          url: jdbc:mysql://127.0.0.1:3306/big_cats?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: root
+          password: 123456

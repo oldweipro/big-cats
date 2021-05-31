@@ -1,4 +1,4 @@
-package com.ultronvision.bigcats.common.shiro.oauth2;
+package com.ultronvision.bigcats.common.entity.oauth2;
 
 import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONObject;

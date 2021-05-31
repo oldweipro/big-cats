@@ -39,6 +39,32 @@
             <artifactId>shiro-spring</artifactId>
             <version>1.7.1</version>
         </dependency>
+        <!-- 数据库框架及插件 -->
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>dynamic-datasource-spring-boot-starter</artifactId>
+            <version>3.3.1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>3.4.1</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.baomidou</groupId>
+                    <artifactId>mybatis-plus-generator</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>p6spy</groupId>
+            <artifactId>p6spy</artifactId>
+            <version>3.9.1</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>

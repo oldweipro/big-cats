@@ -1,8 +1,8 @@
-package com.ultronvision.bigcats.common.shiro.oauth2;
+package com.ultronvision.bigcats.common.entity.oauth2;
 
 import com.ultronvision.bigcats.common.entity.SysUser;
 import com.ultronvision.bigcats.common.entity.SysUserToken;
-import com.ultronvision.bigcats.common.shiro.service.IShiroService;
+import com.ultronvision.bigcats.common.service.IShiroService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.shiro.authc.*;

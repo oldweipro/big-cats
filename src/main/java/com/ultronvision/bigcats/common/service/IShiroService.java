@@ -1,4 +1,4 @@
-package com.ultronvision.bigcats.common.shiro.service;
+package com.ultronvision.bigcats.common.service;
 
 import com.ultronvision.bigcats.common.entity.SysUser;
 import com.ultronvision.bigcats.common.entity.SysUserToken;

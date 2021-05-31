@@ -1,2 +1,26 @@
 server:
   port: 4068
+spring:
+  application:
+    # 应用名称
+    name: big-cats
+  profiles:
+    # 环境 dev|test|prod
+    active: dev
+  jackson:
+    # jackson格式化时间
+    time-zone: GMT+8
+    date-format: yyyy-MM-dd HH:mm:ss
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  # 实体类扫描，多个package用逗号或者分号分隔
+  type-aliases-package: com.oldwei.modules.*.entity
+  # 全局配置
+  global-config:
+    # 数据库相关配置
+    db-config:
+      # 雪花算法
+      id-type: assign_id
+      logic-delete-value: 1
+      logic-not-delete-value: 0
+    banner: false

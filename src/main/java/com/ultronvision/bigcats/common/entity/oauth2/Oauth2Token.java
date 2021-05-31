@@ -1,4 +1,4 @@
-package com.ultronvision.bigcats.common.shiro.oauth2;
+package com.ultronvision.bigcats.common.entity.oauth2;
 
 import org.apache.shiro.authc.AuthenticationToken;
 

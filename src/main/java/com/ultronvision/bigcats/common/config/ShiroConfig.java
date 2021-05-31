@@ -1,8 +1,9 @@
-package com.ultronvision.bigcats.config;
+package com.ultronvision.bigcats.common.config;
 
-import com.ultronvision.bigcats.common.shiro.oauth2.Oauth2Filter;
-import com.ultronvision.bigcats.common.shiro.oauth2.Oauth2Realm;
+import com.ultronvision.bigcats.common.entity.oauth2.Oauth2Filter;
+import com.ultronvision.bigcats.common.entity.oauth2.Oauth2Realm;
 import org.apache.shiro.mgt.SecurityManager;
+import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -23,9 +24,16 @@ import java.util.Map;
 @Configuration
 public class ShiroConfig {
 
+    /**
+     * 权限管理，配置主要是Realm的管理认证
+     *
+     * @param oauth2Realm
+     * @return
+     */
     @Bean("securityManager")
     public SecurityManager securityManager(Oauth2Realm oauth2Realm) {
         DefaultWebSecurityManager defaultWebSecurityManager = new DefaultWebSecurityManager();
+        //将自己的验证方式加入容器
         defaultWebSecurityManager.setRealm(oauth2Realm);
         defaultWebSecurityManager.setRememberMeManager(null);
         return defaultWebSecurityManager;

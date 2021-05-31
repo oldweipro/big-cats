@@ -1,8 +1,8 @@
-package com.ultronvision.bigcats.common.shiro.service.impl;
+package com.ultronvision.bigcats.common.service.impl;
 
 import com.ultronvision.bigcats.common.entity.SysUser;
 import com.ultronvision.bigcats.common.entity.SysUserToken;
-import com.ultronvision.bigcats.common.shiro.service.IShiroService;
+import com.ultronvision.bigcats.common.service.IShiroService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
