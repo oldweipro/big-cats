@@ -1,6 +1,7 @@
-package com.ultronvision.bigcats.common.entity;
+package com.ultronvision.bigcats.common.entity.cats;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.ultronvision.bigcats.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

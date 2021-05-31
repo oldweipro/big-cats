@@ -1,5 +1,6 @@
-package com.ultronvision.bigcats.common.entity;
+package com.ultronvision.bigcats.common.entity.cats;
 
+import com.ultronvision.bigcats.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -9,8 +10,8 @@ import lombok.EqualsAndHashCode;
  * @author oldwei
  * @date 2021/5/31 2:53 下午
  */
-@EqualsAndHashCode(callSuper = true)
 @Data
+@EqualsAndHashCode(callSuper = true)
 public class SysUser extends BaseEntity {
     private static final long serialVersionUID = -5948243617895325309L;
     /**

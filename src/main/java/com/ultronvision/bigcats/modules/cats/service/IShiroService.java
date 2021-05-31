@@ -1,7 +1,7 @@
-package com.ultronvision.bigcats.common.service;
+package com.ultronvision.bigcats.modules.cats.service;
 
-import com.ultronvision.bigcats.common.entity.SysUser;
-import com.ultronvision.bigcats.common.entity.SysUserToken;
+import com.ultronvision.bigcats.common.entity.cats.SysUser;
+import com.ultronvision.bigcats.common.entity.cats.SysUserToken;
 
 import java.util.Set;
 

@@ -8,8 +8,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2021/5/31 11:23 上午
  */
 @SpringBootApplication
-public class FastBootApplication {
+public class BigCatsBootApplication {
     public static void main(String[] args) {
-        SpringApplication.run(FastBootApplication.class, args);
+        SpringApplication.run(BigCatsBootApplication.class, args);
     }
 }
