@@ -54,4 +54,15 @@ public class SysUserTokenServiceImpl extends ServiceImpl<SysUserTokenMapper, Sys
         }
         return token;
     }
+    @Override
+    public void logout(long userId) {
+        //生成一个token
+        String token = RandomUtil.randomString(32);
+
+        //修改token
+        SysUserToken userToken = new SysUserToken();
+        userToken.setUserId(userId);
+        userToken.setToken(token);
+        this.updateById(userToken);
+    }
 }

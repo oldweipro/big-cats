@@ -1,8 +1,11 @@
 package com.ultronvision.bigcats.modules.cats.controller;
 
+import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.crypto.SecureUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.ultronvision.bigcats.common.entity.BaseController;
 import com.ultronvision.bigcats.common.entity.cats.SysUser;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserService;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserTokenService;
@@ -16,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 登录相关
@@ -26,9 +31,9 @@ import java.util.List;
  */
 @Slf4j
 @RestController
-@RequestMapping("cats")
+@RequestMapping("auth")
 @RequiredArgsConstructor
-public class LoginController {
+public class LoginController extends BaseController {
     private final ISysUserService sysUserService;
     private final ISysUserTokenService sysUserTokenService;
 
@@ -41,27 +46,61 @@ public class LoginController {
             return ResponseEntity.ok(false);
         }
         List<SysUser> userList = new ArrayList<>();
+        user.setPassword(SecureUtil.md5(user.getPassword()));
         userList.add(user);
         boolean b = this.sysUserService.saveBatch(userList);
         return ResponseEntity.ok(b);
     }
 
     @PostMapping("login")
-    public ResponseEntity<String> login(@RequestBody SysUser user) {
+    public ResponseEntity<Map<String, Object>> login(@RequestBody SysUser user) {
+        Map<String, Object> map = new HashMap<>(15);
+        Map<String, Object> result = new HashMap<>(1);
         if (user.getUsername().isBlank()) {
-            return ResponseEntity.ok("登录失败");
+            map.put("message", "登录失败");
+            result.put("result", map);
+            return ResponseEntity.ok(result);
         }
         LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(SysUser::getUsername, user.getUsername());
         SysUser one = this.sysUserService.getOne(lambdaQueryWrapper);
         if (one == null) {
-            return ResponseEntity.ok("登录失败");
+            map.put("message", "登录失败");
+            result.put("result", map);
+            return ResponseEntity.ok(result);
         }
         boolean equals = StrUtil.equals(one.getPassword(), user.getPassword());
         if (!equals) {
-            return ResponseEntity.ok("登录失败");
+            map.put("message", "登录失败");
+            result.put("result", map);
+            return ResponseEntity.ok(result);
         }
         String token = this.sysUserTokenService.createToken(one.getId());
-        return ResponseEntity.ok("登录成功:" + token);
+
+        map.put("id", RandomUtil.randomString(20));
+        map.put("name", "oldwei");
+        map.put("username", "admin");
+        map.put("password", "");
+        map.put("avatar", "https://gw.alipayobjects.com/zos/rmsportal/jZUIxmJycoymBprLOUbT.png");
+        map.put("status", 1);
+        map.put("telephone", "");
+        map.put("lastLoginIp", "27.154.74.117");
+        map.put("lastLoginTime", "1534837621348");
+        map.put("creatorId", "admin");
+        map.put("createTime", "1497160610259");
+        map.put("deleted", 0);
+        map.put("roleId", "admin");
+        map.put("lang", "zh-CN");
+        map.put("token", token);
+        result.put("result", map);
+        return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("logout")
+    public ResponseEntity<Map<String, Object>> logout() {
+        Map<String, Object> map = new HashMap<>();
+        this.sysUserTokenService.logout(getUserId());
+        map.put("message", "注销成功");
+        return ResponseEntity.ok(map);
     }
 }

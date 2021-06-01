@@ -48,8 +48,8 @@ public class ShiroConfig {
         filters.put("oauth2", new Oauth2Filter());
         shiroFilterFactoryBean.setFilters(filters);
         Map<String, String> filterMap = new LinkedHashMap<>();
-        filterMap.put("/cats/register", "anon");
-        filterMap.put("/cats/login", "anon");
+        filterMap.put("/auth/register", "anon");
+        filterMap.put("/auth/login", "anon");
         filterMap.put("/**", "oauth2");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
         return shiroFilterFactoryBean;

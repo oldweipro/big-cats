@@ -16,4 +16,10 @@ public interface ISysUserTokenService extends IService<SysUserToken> {
      * @return
      */
     String createToken(long userId);
+    /**
+     * 退出，修改token值
+     *
+     * @param userId 用户ID
+     */
+    void logout(long userId);
 }
