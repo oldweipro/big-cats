@@ -33,10 +33,16 @@ import java.util.Map;
 @RestController
 @RequestMapping("auth")
 @RequiredArgsConstructor
-public class LoginController extends BaseController {
+public class AuthController extends BaseController {
     private final ISysUserService sysUserService;
     private final ISysUserTokenService sysUserTokenService;
 
+    /**
+     * 用户注册
+     *
+     * @param user
+     * @return
+     */
     @PostMapping("register")
     public ResponseEntity<Boolean> registerWebsite(@RequestBody SysUser user) {
         LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
@@ -52,6 +58,12 @@ public class LoginController extends BaseController {
         return ResponseEntity.ok(b);
     }
 
+    /**
+     * 用户登录
+     *
+     * @param user
+     * @return
+     */
     @PostMapping("login")
     public ResponseEntity<Map<String, Object>> login(@RequestBody SysUser user) {
         Map<String, Object> map = new HashMap<>(15);
@@ -96,9 +108,14 @@ public class LoginController extends BaseController {
         return ResponseEntity.ok(result);
     }
 
+    /**
+     * 退出登录
+     *
+     * @return
+     */
     @PostMapping("logout")
     public ResponseEntity<Map<String, Object>> logout() {
-        Map<String, Object> map = new HashMap<>();
+        Map<String, Object> map = new HashMap<>(1);
         this.sysUserTokenService.logout(getUserId());
         map.put("message", "注销成功");
         return ResponseEntity.ok(map);
