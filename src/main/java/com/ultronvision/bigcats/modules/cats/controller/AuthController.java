@@ -120,4 +120,44 @@ public class AuthController extends BaseController {
         map.put("message", "注销成功");
         return ResponseEntity.ok(map);
     }
+
+    /**
+     * 发送验证码
+     *
+     * @return
+     */
+    @PostMapping("account/sms")
+    public ResponseEntity<Map<String, Object>> smsCaptcha() {
+        Map<String, Object> result = new HashMap<>(1);
+        Map<String, Object> map = new HashMap<>(1);
+        map.put("captcha", RandomUtil.randomInt(100000, 999999));
+        result.put("result", map);
+        return ResponseEntity.ok(result);
+    }
+
+    /**
+     * 双因素认证
+     *
+     * @return
+     */
+    @PostMapping("2step-code")
+    public ResponseEntity<Map<String, Object>> twoFactor() {
+        Map<String, Object> result = new HashMap<>(1);
+        Map<String, Object> map = new HashMap<>(1);
+        map.put("stepCode", RandomUtil.randomInt(0, 1));
+        result.put("result", map);
+        return ResponseEntity.ok(result);
+    }
+
+    /**
+     * 忘记密码
+     *
+     * @return
+     */
+    @PostMapping("forget-password")
+    public ResponseEntity<Map<String, Object>> forgetPassword() {
+        Map<String, Object> result = new HashMap<>(1);
+        result.put("result", "map");
+        return ResponseEntity.ok(result);
+    }
 }
