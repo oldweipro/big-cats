@@ -8,4 +8,11 @@ import com.ultronvision.bigcats.common.entity.cats.SysUser;
  * @date 2021/5/31 6:03 下午
  */
 public interface ISysUserService extends IService<SysUser> {
+    /**
+     * 检查用户名重复
+     *
+     * @param username 用户名
+     * @return true重复 false不重复
+     */
+    boolean checkUsernameDuplicate(String username);
 }

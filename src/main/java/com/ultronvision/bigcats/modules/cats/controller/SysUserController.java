@@ -1,6 +1,7 @@
 package com.ultronvision.bigcats.modules.cats.controller;
 
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.crypto.SecureUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -15,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -838,6 +840,24 @@ public class SysUserController extends BaseController {
         Map<String, Object> dataTable = BigCatsUtil.getDataTable(this.sysUserService.page(sysUserPage, lambdaQueryWrapper));
         JSONObject result = new JSONObject();
         result.put("result", dataTable);
+        return ResponseEntity.ok(result);
+    }
+
+    @PostMapping
+    public ResponseEntity<JSONObject> addUser(SysUser sysUser) {
+        if (StrUtil.isBlank(sysUser.getUsername())) {
+            return ResponseEntity.badRequest().build();
+        }
+        // 检查username用户名重复
+        boolean isDuplicate = this.sysUserService.checkUsernameDuplicate(sysUser.getUsername());
+        if (isDuplicate) {
+            return ResponseEntity.badRequest().build();
+        }
+        sysUser.setPassword(SecureUtil.md5(sysUser.getPassword()));
+        // 构造条件
+        boolean isSave = this.sysUserService.save(sysUser);
+        JSONObject result = new JSONObject();
+        result.put("result", isSave);
         return ResponseEntity.ok(result);
     }
 }

@@ -2,7 +2,6 @@ package com.ultronvision.bigcats.modules.cats.controller;
 
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
-import cn.hutool.crypto.SecureUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.ultronvision.bigcats.common.entity.BaseController;
@@ -11,7 +10,6 @@ import com.ultronvision.bigcats.modules.cats.service.ISysUserService;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserTokenService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.http.RequestEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -44,18 +42,29 @@ public class AuthController extends BaseController {
      * @return
      */
     @PostMapping("register")
-    public ResponseEntity<Boolean> registerWebsite(@RequestBody SysUser user) {
+    public ResponseEntity<JSONObject> registerWebsite(@RequestBody SysUser user) {
         LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
-        lambdaQueryWrapper.eq(SysUser::getUsername, user.getUsername());
+        lambdaQueryWrapper.eq(StrUtil.isNotBlank(user.getUsername()), SysUser::getUsername, user.getUsername());
         SysUser one = this.sysUserService.getOne(lambdaQueryWrapper);
+        JSONObject result = new JSONObject();
         if (one != null) {
-            return ResponseEntity.ok(false);
+            result.put("result", one.getUsername());
+            result.put("msg", "注册失败，用户名已存在。");
+            return ResponseEntity.badRequest().body(result);
+        }
+        lambdaQueryWrapper.eq(StrUtil.isNotBlank(user.getEmail()), SysUser::getEmail, user.getEmail());
+        SysUser one2 = this.sysUserService.getOne(lambdaQueryWrapper);
+        if (one2 != null) {
+            result.put("result", one2.getEmail());
+            result.put("msg", "注册失败，邮箱已存在。");
+            return ResponseEntity.badRequest().body(result);
         }
         List<SysUser> userList = new ArrayList<>();
-        user.setPassword(SecureUtil.md5(user.getPassword()));
         userList.add(user);
         boolean b = this.sysUserService.saveBatch(userList);
-        return ResponseEntity.ok(b);
+        result.put("result", b);
+        result.put("msg", "注册成功。");
+        return ResponseEntity.ok(result);
     }
 
     /**

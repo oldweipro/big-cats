@@ -3,7 +3,6 @@ package com.ultronvision.bigcats.common.config;
 import com.ultronvision.bigcats.common.entity.oauth2.Oauth2Filter;
 import com.ultronvision.bigcats.common.entity.oauth2.Oauth2Realm;
 import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.spring.LifecycleBeanPostProcessor;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;
 import org.apache.shiro.web.mgt.DefaultWebSecurityManager;
@@ -50,6 +49,8 @@ public class ShiroConfig {
         Map<String, String> filterMap = new LinkedHashMap<>();
         filterMap.put("/auth/register", "anon");
         filterMap.put("/auth/login", "anon");
+        filterMap.put("/auth/account/sms", "anon");
+        filterMap.put("/auth/2step-code", "anon");
         filterMap.put("/**", "oauth2");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
         return shiroFilterFactoryBean;

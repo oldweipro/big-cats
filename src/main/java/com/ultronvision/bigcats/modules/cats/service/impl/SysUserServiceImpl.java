@@ -1,5 +1,7 @@
 package com.ultronvision.bigcats.modules.cats.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ultronvision.bigcats.common.entity.cats.SysUser;
 import com.ultronvision.bigcats.modules.cats.mapper.SysUserMapper;
@@ -17,4 +19,11 @@ import org.springframework.transaction.annotation.Transactional;
 @RequiredArgsConstructor
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> implements ISysUserService {
+    @Override
+    public boolean checkUsernameDuplicate(String username) {
+        LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(SysUser::getUsername, username);
+        SysUser sysUser = this.baseMapper.selectOne(lambdaQueryWrapper);
+        return ObjectUtil.isNotNull(sysUser);
+    }
 }
