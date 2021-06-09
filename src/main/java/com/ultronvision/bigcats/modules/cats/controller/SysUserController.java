@@ -1,13 +1,24 @@
 package com.ultronvision.bigcats.modules.cats.controller;
 
+import cn.hutool.core.util.StrUtil;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ultronvision.bigcats.common.entity.BaseController;
+import com.ultronvision.bigcats.common.entity.QueryRequest;
+import com.ultronvision.bigcats.common.entity.cats.SysUser;
+import com.ultronvision.bigcats.common.util.BigCatsUtil;
+import com.ultronvision.bigcats.modules.cats.service.ISysUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /**
  * 用户相关
@@ -20,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("sys/user")
 @RequiredArgsConstructor
 public class SysUserController extends BaseController {
+    private final ISysUserService sysUserService;
     /**
      * 获取用户信息
      *
@@ -705,7 +717,7 @@ public class SysUserController extends BaseController {
                 "      \"meta\": {\n" +
                 "        \"title\": \"个人设置\",\n" +
                 "        \"hideHeader\": true,\n" +
-                "        \"hideChildren\": true,\n" +
+                "        \"hideChildren\": false,\n" +
                 "        \"show\": true\n" +
                 "      },\n" +
                 "      \"redirect\": \"/account/settings/base\",\n" +
@@ -740,7 +752,7 @@ public class SysUserController extends BaseController {
                 "      \"id\": 10033,\n" +
                 "      \"meta\": {\n" +
                 "        \"title\": \"个性化设置\",\n" +
-                "        \"show\": false\n" +
+                "        \"show\": true\n" +
                 "      },\n" +
                 "      \"component\": \"CustomSettings\"\n" +
                 "    },\n" +
@@ -751,7 +763,7 @@ public class SysUserController extends BaseController {
                 "      \"id\": 10034,\n" +
                 "      \"meta\": {\n" +
                 "        \"title\": \"账户绑定\",\n" +
-                "        \"show\": false\n" +
+                "        \"show\": true\n" +
                 "      },\n" +
                 "      \"component\": \"BindingSettings\"\n" +
                 "    },\n" +
@@ -762,14 +774,70 @@ public class SysUserController extends BaseController {
                 "      \"id\": 10034,\n" +
                 "      \"meta\": {\n" +
                 "        \"title\": \"新消息通知\",\n" +
-                "        \"show\": false\n" +
+                "        \"show\": true\n" +
                 "      },\n" +
                 "      \"component\": \"NotificationSettings\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"name\": \"cats\",\n" +
+                "      \"parentId\": 0,\n" +
+                "      \"id\": 10035,\n" +
+                "      \"meta\": {\n" +
+                "        \"title\": \"系统设置\",\n" +
+                "        \"icon\": \"user\",\n" +
+                "        \"show\": true\n" +
+                "      },\n" +
+                "      \"redirect\": \"/account/center\",\n" +
+                "      \"component\": \"RouteView\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"key\": \"sys-user\",\n" +
+                "      \"parentId\": 10035,\n" +
+                "      \"id\": 10036,\n" +
+                "      \"meta\": {\n" +
+                "        \"title\": \"用户管理\",\n" +
+                "        \"show\": true\n" +
+                "      },\n" +
+                "      \"path\": \"sysUser\",\n" +
+                "      \"component\": \"cats/sysUser/SysUser\"\n" +
+                "    },\n" +
+                "    {\n" +
+                "      \"name\": \"settings\",\n" +
+                "      \"parentId\": 10035,\n" +
+                "      \"id\": 10037,\n" +
+                "      \"meta\": {\n" +
+                "        \"title\": \"角色管理\",\n" +
+                "        \"show\": true\n" +
+                "      },\n" +
+                "      \"component\": \"AccountSettings\"\n" +
                 "    }\n" +
                 "  ]";
         JSONObject result = new JSONObject();
         JSONArray array = JSONArray.parseArray(navStr);
         result.put("result", array);
         return result;
+    }
+
+    /**
+     * 查询用户信息列表
+     *
+     * @param request
+     * @param sysUser
+     * @return
+     */
+    @GetMapping
+    public ResponseEntity<JSONObject> user(QueryRequest request, SysUser sysUser) {
+        IPage<SysUser> sysUserPage = new Page<>(request.getPageNo(), request.getPageSize());
+        // 创建条件构造器
+        LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        // 构造条件
+        lambdaQueryWrapper.like(StrUtil.isNotBlank(sysUser.getUsername()), SysUser::getUsername, sysUser.getUsername())
+                .ge(StrUtil.isNotBlank(request.getCreateTimeFrom()), SysUser::getCreateTime, request.getCreateTimeFrom())
+                .le(StrUtil.isNotBlank(request.getCreateTimeTo()), SysUser::getCreateTime, request.getCreateTimeTo())
+                .orderByDesc(SysUser::getCreateTime);
+        Map<String, Object> dataTable = BigCatsUtil.getDataTable(this.sysUserService.page(sysUserPage, lambdaQueryWrapper));
+        JSONObject result = new JSONObject();
+        result.put("result", dataTable);
+        return ResponseEntity.ok(result);
     }
 }

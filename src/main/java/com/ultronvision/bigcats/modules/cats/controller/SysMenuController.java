@@ -1,5 +1,6 @@
 package com.ultronvision.bigcats.modules.cats.controller;
 
+import com.ultronvision.bigcats.common.entity.BaseController;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,5 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("sys/menu")
 @RequiredArgsConstructor
-public class SysMenuController {
+public class SysMenuController extends BaseController {
+
 }

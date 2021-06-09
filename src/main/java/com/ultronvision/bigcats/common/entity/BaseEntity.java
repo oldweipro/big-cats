@@ -62,24 +62,4 @@ public class BaseEntity implements Serializable {
      */
     protected Long deptId;
 
-    /**
-     * 查询开始时间
-     */
-    @TableField(exist = false)
-    private String createTimeFrom;
-    /**
-     * 查询结束时间
-     */
-    @TableField(exist = false)
-    private String createTimeTo;
-    /**
-     * 当前页面数据量
-     */
-    @TableField(exist = false)
-    private int pageSize = 10;
-    /**
-     * 当前页码
-     */
-    @TableField(exist = false)
-    private int pageIndex = 1;
 }
