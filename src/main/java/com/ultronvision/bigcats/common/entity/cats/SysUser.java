@@ -15,6 +15,10 @@ import lombok.EqualsAndHashCode;
 public class SysUser extends BaseEntity {
     private static final long serialVersionUID = -5948243617895325309L;
     /**
+     * 姓名
+     */
+    private String name;
+    /**
      * 用户名
      */
     private String username;
@@ -22,12 +26,34 @@ public class SysUser extends BaseEntity {
     /**
      * 密码
      */
-    private String password;
+    private String password = "000000";
+
+    /**
+     * 头像
+     */
+    private String avatar;
+    /**
+     * 电话
+     */
+    private String telephone;
+    /**
+     * 最后一次登录的IP地址
+     */
+    private String lastLoginIp;
+    /**
+     * 最后一次登录的时间戳
+     */
+    private Long lastLoginTime;
 
     /**
      * 盐
      */
     private String salt;
+
+    /**
+     * 系统语言
+     */
+    private String lang;
 
     /**
      * 邮箱

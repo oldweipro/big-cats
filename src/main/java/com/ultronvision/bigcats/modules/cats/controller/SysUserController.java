@@ -6,6 +6,7 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ultronvision.bigcats.common.entity.BaseController;
 import com.ultronvision.bigcats.common.entity.QueryRequest;
@@ -15,11 +16,10 @@ import com.ultronvision.bigcats.modules.cats.service.ISysUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -34,6 +34,7 @@ import java.util.Map;
 @RequiredArgsConstructor
 public class SysUserController extends BaseController {
     private final ISysUserService sysUserService;
+
     /**
      * 获取用户信息
      *
@@ -843,6 +844,12 @@ public class SysUserController extends BaseController {
         return ResponseEntity.ok(result);
     }
 
+    /**
+     * 新增用户
+     *
+     * @param sysUser
+     * @return
+     */
     @PostMapping
     public ResponseEntity<JSONObject> addUser(SysUser sysUser) {
         if (StrUtil.isBlank(sysUser.getUsername())) {
@@ -858,6 +865,44 @@ public class SysUserController extends BaseController {
         boolean isSave = this.sysUserService.save(sysUser);
         JSONObject result = new JSONObject();
         result.put("result", isSave);
+        return ResponseEntity.ok(result);
+    }
+
+    /**
+     * 修改用户
+     *
+     * @param sysUser
+     * @return
+     */
+    @PutMapping
+    public ResponseEntity<JSONObject> modifyUser(SysUser sysUser) {
+        if (null == sysUser.getId()) {
+            return ResponseEntity.badRequest().build();
+        }
+        if (StrUtil.isNotBlank(sysUser.getPassword())) {
+            sysUser.setPassword(SecureUtil.md5(sysUser.getPassword()));
+        }
+        // 构造条件
+        boolean isSave = this.sysUserService.updateById(sysUser);
+        JSONObject result = new JSONObject();
+        result.put("result", isSave);
+        return ResponseEntity.ok(result);
+    }
+
+    /**
+     * 删除用户
+     *
+     * @param userIds 用户id列表
+     * @return
+     */
+    @DeleteMapping("/{userIds}")
+    public ResponseEntity<JSONObject> modifyUser(@PathVariable String userIds) {
+        // 构造条件
+        String[] ids = userIds.split(StringPool.COMMA);
+        List<String> list = Arrays.asList(ids);
+        boolean removeByIds = this.sysUserService.removeByIds(list);
+        JSONObject result = new JSONObject();
+        result.put("result", removeByIds);
         return ResponseEntity.ok(result);
     }
 }

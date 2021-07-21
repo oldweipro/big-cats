@@ -16,10 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * 登录相关
@@ -52,7 +49,7 @@ public class AuthController extends BaseController {
             result.put("msg", "注册失败，用户名已存在。");
             return ResponseEntity.badRequest().body(result);
         }
-        lambdaQueryWrapper.eq(StrUtil.isNotBlank(user.getEmail()), SysUser::getEmail, user.getEmail());
+        lambdaQueryWrapper.or().eq(StrUtil.isNotBlank(user.getEmail()), SysUser::getEmail, user.getEmail());
         SysUser one2 = this.sysUserService.getOne(lambdaQueryWrapper);
         if (one2 != null) {
             result.put("result", one2.getEmail());
@@ -98,20 +95,6 @@ public class AuthController extends BaseController {
         }
         String token = this.sysUserTokenService.createToken(one.getId());
 
-        map.put("id", RandomUtil.randomString(20));
-        map.put("name", "oldwei");
-        map.put("username", "admin");
-        map.put("password", "");
-        map.put("avatar", "https://gw.alipayobjects.com/zos/rmsportal/jZUIxmJycoymBprLOUbT.png");
-        map.put("status", 1);
-        map.put("telephone", "");
-        map.put("lastLoginIp", "27.154.74.117");
-        map.put("lastLoginTime", "1534837621348");
-        map.put("creatorId", "admin");
-        map.put("createTime", "1497160610259");
-        map.put("deleted", 0);
-        map.put("roleId", "admin");
-        map.put("lang", "zh-CN");
         map.put("token", token);
         result.put("result", map);
         return ResponseEntity.ok(result);

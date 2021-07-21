@@ -1,6 +1,7 @@
 package com.ultronvision.bigcats.common.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
@@ -20,6 +21,7 @@ public class BaseEntity implements Serializable {
      * 主键ID
      */
     @JsonFormat(shape = JsonFormat.Shape.STRING)
+    @TableId
     protected Long id;
 
     /**
