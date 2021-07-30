@@ -6,6 +6,8 @@ import com.ultronvision.bigcats.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.util.List;
+
 /**
  * @author oldwei
  * @date 2021/5/31 4:44 下午
@@ -21,20 +23,33 @@ public class SysMenu extends BaseEntity {
     private Long parentId;
 
     /**
-     * 父级菜单名称
-     */
-    @TableField(exist = false)
-    private String parentName;
-
-    /**
      * 菜单名称
      */
     private String name;
+    private String title;
+    private String icon;
+    private Boolean hidden;
 
     /**
-     * 菜单URL
+     * 子节点
      */
-    private String url;
+    @TableField(exist = false)
+    private List<SysMenu> children;
+
+    /**
+     * 组件名称
+     */
+    private String component;
+
+    /**
+     * 路径
+     */
+    private String path;
+
+    /**
+     * 重定向地址
+     */
+    private String redirect;
 
     /**
      * 授权(多个逗号分隔，如：user:list,user:create)
@@ -45,11 +60,6 @@ public class SysMenu extends BaseEntity {
      * 类型 0：目录 1：菜单 2：按钮
      */
     private Integer type;
-
-    /**
-     * 菜单图标
-     */
-    private String icon;
 
     /**
      * 排序

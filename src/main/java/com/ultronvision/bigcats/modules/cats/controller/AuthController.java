@@ -77,7 +77,7 @@ public class AuthController extends BaseController {
         if (user.getUsername().isBlank()) {
             map.put("message", "登录失败");
             result.put("result", map);
-            return ResponseEntity.ok(result);
+            return ResponseEntity.badRequest().body(result);
         }
         LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(SysUser::getUsername, user.getUsername());
@@ -85,13 +85,13 @@ public class AuthController extends BaseController {
         if (one == null) {
             map.put("message", "登录失败");
             result.put("result", map);
-            return ResponseEntity.ok(result);
+            return ResponseEntity.badRequest().body(result);
         }
         boolean equals = StrUtil.equals(one.getPassword(), user.getPassword());
         if (!equals) {
             map.put("message", "登录失败");
             result.put("result", map);
-            return ResponseEntity.ok(result);
+            return ResponseEntity.badRequest().body(result);
         }
         String token = this.sysUserTokenService.createToken(one.getId());
 

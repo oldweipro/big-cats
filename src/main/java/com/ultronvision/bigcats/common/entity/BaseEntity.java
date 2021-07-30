@@ -59,6 +59,12 @@ public class BaseEntity implements Serializable {
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     protected Date modifyTime;
 
+//    /**
+//     * 租户ID
+//     */
+//    @JsonFormat(shape = JsonFormat.Shape.STRING)
+//    private Long tenantId;
+
     /**
      * 部门ID
      */
