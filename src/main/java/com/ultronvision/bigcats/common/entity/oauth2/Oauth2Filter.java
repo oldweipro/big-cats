@@ -1,7 +1,7 @@
 package com.ultronvision.bigcats.common.entity.oauth2;
 
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.fastjson.JSONObject;
+import cn.hutool.json.JSONUtil;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
@@ -48,7 +48,7 @@ public class Oauth2Filter extends AuthenticatingFilter {
             httpResponse.setHeader("Access-Control-Allow-Credentials", "true");
             httpResponse.setHeader("Access-Control-Allow-Origin", ((ServletRequestAttributes) Objects.requireNonNull(RequestContextHolder.getRequestAttributes())).getRequest().getHeader("Origin"));
             ResponseEntity<String> invalidToken = ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("invalid token");
-            String r = JSONObject.toJSONString(invalidToken);
+            String r = JSONUtil.toJsonStr(invalidToken);
             httpResponse.getWriter().write(r);
             return false;
         }
@@ -65,7 +65,7 @@ public class Oauth2Filter extends AuthenticatingFilter {
             // 处理登录失败的异常
             Throwable throwable = e.getCause() == null ? e : e.getCause();
             ResponseEntity<String> invalidToken = ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(throwable.getMessage());
-            String r = JSONObject.toJSONString(invalidToken);
+            String r = JSONUtil.toJsonStr(invalidToken);
             httpResponse.getWriter().write(r);
         } catch (IOException ignored) {}
         return false;

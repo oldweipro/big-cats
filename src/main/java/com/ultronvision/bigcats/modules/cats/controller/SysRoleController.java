@@ -1,6 +1,7 @@
 package com.ultronvision.bigcats.modules.cats.controller;
 
-import com.alibaba.fastjson.JSONObject;
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -606,9 +607,9 @@ public class SysRoleController {
                 "    \"totalPage\": 1,\n" +
                 "    \"totalCount\": 5\n" +
                 "  }";
-        JSONObject role = JSONObject.parseObject(roleStr);
+        JSONObject role = JSONUtil.parseObj(roleStr);
         JSONObject result = new JSONObject();
-        result.put("result", role);
+        result.set("result", role);
         return result;
     }
 }

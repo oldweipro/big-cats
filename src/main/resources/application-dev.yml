@@ -17,3 +17,7 @@ spring:
           url: jdbc:mysql://127.0.0.1:3306/big_cats?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
           username: root
           password: 123456
+        hik:
+          url: jdbc:mysql://127.0.0.1:3306/hik?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: root
+          password: 123456

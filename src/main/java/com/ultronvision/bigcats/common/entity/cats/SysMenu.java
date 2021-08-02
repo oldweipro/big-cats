@@ -2,6 +2,7 @@ package com.ultronvision.bigcats.common.entity.cats;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import com.ultronvision.bigcats.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -26,13 +27,26 @@ public class SysMenu extends BaseEntity {
      * 菜单名称
      */
     private String name;
+
+    /**
+     * 名称
+     */
     private String title;
+
+    /**
+     * 图标
+     */
     private String icon;
+
+    /**
+     * 是否隐藏
+     */
     private Boolean hidden;
 
     /**
      * 子节点
      */
+    @JsonInclude(JsonInclude.Include.NON_EMPTY)
     @TableField(exist = false)
     private List<SysMenu> children;
 

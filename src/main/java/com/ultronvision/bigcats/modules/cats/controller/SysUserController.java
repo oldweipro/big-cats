@@ -2,7 +2,8 @@ package com.ultronvision.bigcats.modules.cats.controller;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
-import com.alibaba.fastjson.JSONObject;
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
@@ -58,7 +59,7 @@ public class SysUserController extends BaseController {
                 "    \"roleId\": \"admin\",\n" +
                 "    \"role\": {}\n" +
                 "  }";
-        JSONObject userInfo = JSONObject.parseObject(userInfoStr);
+        JSONObject userInfo = JSONUtil.parseObj(userInfoStr);
         String roleObjStr = "{\n" +
                 "    \"id\": \"admin\",\n" +
                 "    \"name\": \"管理员\",\n" +
@@ -401,10 +402,10 @@ public class SysUserController extends BaseController {
                 "      \"dataAccess\": null\n" +
                 "    }]\n" +
                 "  }";
-        JSONObject roleObj = JSONObject.parseObject(roleObjStr);
-        userInfo.put("role", roleObj);
+        JSONObject roleObj = JSONUtil.parseObj(roleObjStr);
+        userInfo.set("role", roleObj);
         JSONObject result = new JSONObject();
-        result.put("result", userInfo);
+        result.set("result", userInfo);
         return result;
     }
 
@@ -427,7 +428,7 @@ public class SysUserController extends BaseController {
                 .orderByDesc(SysUser::getCreateTime);
         Map<String, Object> dataTable = BigCatsUtil.getDataTable(this.sysUserService.page(sysUserPage, lambdaQueryWrapper));
         JSONObject result = new JSONObject();
-        result.put("result", dataTable);
+        result.set("result", dataTable);
         return ResponseEntity.ok(result);
     }
 
@@ -451,7 +452,7 @@ public class SysUserController extends BaseController {
         // 构造条件
         boolean isSave = this.sysUserService.save(sysUser);
         JSONObject result = new JSONObject();
-        result.put("result", isSave);
+        result.set("result", isSave);
         return ResponseEntity.ok(result);
     }
 
@@ -472,7 +473,7 @@ public class SysUserController extends BaseController {
         // 构造条件
         boolean isSave = this.sysUserService.updateById(sysUser);
         JSONObject result = new JSONObject();
-        result.put("result", isSave);
+        result.set("result", isSave);
         return ResponseEntity.ok(result);
     }
 
@@ -489,7 +490,7 @@ public class SysUserController extends BaseController {
         List<String> list = Arrays.asList(ids);
         boolean removeByIds = this.sysUserService.removeByIds(list);
         JSONObject result = new JSONObject();
-        result.put("result", removeByIds);
+        result.set("result", removeByIds);
         return ResponseEntity.ok(result);
     }
 }

@@ -3,8 +3,9 @@ package com.ultronvision.bigcats.modules.cats.controller;
 import cn.hutool.core.date.DateField;
 import cn.hutool.core.date.DateTime;
 import cn.hutool.core.util.RandomUtil;
-import com.alibaba.fastjson.JSONArray;
-import com.alibaba.fastjson.JSONObject;
+import cn.hutool.json.JSONArray;
+import cn.hutool.json.JSONObject;
+import cn.hutool.json.JSONUtil;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,24 +32,24 @@ public class OtherController {
         for (int i = 1; i < next; i++) {
             double tmpKey = key + i;
             JSONObject object = new JSONObject();
-            object.put("key", tmpKey);
-            object.put("id", tmpKey);
-            object.put("no", "No " + tmpKey);
-            object.put("description", "这是一段描述");
-            object.put("callNo", RandomUtil.randomInt(1, 999));
-            object.put("status", RandomUtil.randomInt(0, 3));
-            object.put("updatedAt", RandomUtil.randomDate(DateTime.now(), DateField.DAY_OF_YEAR, 1994, 2021));
-            object.put("editable", false);
+            object.set("key", tmpKey);
+            object.set("id", tmpKey);
+            object.set("no", "No " + tmpKey);
+            object.set("description", "这是一段描述");
+            object.set("callNo", RandomUtil.randomInt(1, 999));
+            object.set("status", RandomUtil.randomInt(0, 3));
+            object.set("updatedAt", RandomUtil.randomDate(DateTime.now(), DateField.DAY_OF_YEAR, 1994, 2021));
+            object.set("editable", false);
             result.add(object);
         }
         JSONObject data = new JSONObject();
-        data.put("pageSize", pageSize);
-        data.put("pageNo", pageNo);
-        data.put("totalCount", totalCount);
-        data.put("totalPage", totalPage);
-        data.put("data", result);
+        data.set("pageSize", pageSize);
+        data.set("pageNo", pageNo);
+        data.set("totalCount", totalCount);
+        data.set("totalPage", totalPage);
+        data.set("data", result);
         JSONObject builder = new JSONObject();
-        builder.put("result", data);
+        builder.set("result", data);
         return builder;
     }
 
@@ -109,9 +110,9 @@ public class OtherController {
                 "    \"totalPage\": 6,\n" +
                 "    \"totalCount\": 57\n" +
                 "  }";
-        JSONObject projects = JSONObject.parseObject(projectsStr);
+        JSONObject projects = JSONUtil.parseObj(projectsStr);
         JSONObject result = new JSONObject();
-        result.put("result", projects);
+        result.set("result", projects);
         return result;
     }
 
@@ -196,9 +197,9 @@ public class OtherController {
                 "    time: \"2018-08-23 14:47:00\"\n" +
                 "  }\n" +
                 "  ]";
-        JSONArray activity = JSONArray.parseArray(activityStr);
+        JSONArray activity = JSONUtil.parseArray(activityStr);
         JSONObject result = new JSONObject();
-        result.put("result", activity);
+        result.set("result", activity);
         return result;
     }
 
@@ -230,9 +231,9 @@ public class OtherController {
                 "    avatar: \"https://gw.alipayobjects.com/zos/rmsportal/WhxKECPNujWoWEFNdnJE.png\"\n" +
                 "  }\n" +
                 "  ]";
-        JSONArray teams = JSONArray.parseArray(teamsStr);
+        JSONArray teams = JSONUtil.parseArray(teamsStr);
         JSONObject result = new JSONObject();
-        result.put("result", teams);
+        result.set("result", teams);
         return result;
     }
 
@@ -275,9 +276,9 @@ public class OtherController {
                 "    \"部门\": 40\n" +
                 "  }\n" +
                 "  ]";
-        JSONArray radar = JSONArray.parseArray(radarStr);
+        JSONArray radar = JSONUtil.parseArray(radarStr);
         JSONObject result = new JSONObject();
-        result.put("result", radar);
+        result.set("result", radar);
         return result;
     }
 
@@ -433,9 +434,9 @@ public class OtherController {
                 "    \"totalPage\": 1,\n" +
                 "    \"totalCount\": 5\n" +
                 "}";
-        JSONObject radar = JSONObject.parseObject(permissions);
+        JSONObject radar = JSONUtil.parseObj(permissions);
         JSONObject result = new JSONObject();
-        result.put("result", radar);
+        result.set("result", radar);
         return result;
     }
 }

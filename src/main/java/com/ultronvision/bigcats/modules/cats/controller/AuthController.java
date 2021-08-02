@@ -2,7 +2,7 @@ package com.ultronvision.bigcats.modules.cats.controller;
 
 import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
-import com.alibaba.fastjson.JSONObject;
+import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.ultronvision.bigcats.common.entity.BaseController;
 import com.ultronvision.bigcats.common.entity.cats.SysUser;
@@ -45,22 +45,22 @@ public class AuthController extends BaseController {
         SysUser one = this.sysUserService.getOne(lambdaQueryWrapper);
         JSONObject result = new JSONObject();
         if (one != null) {
-            result.put("result", one.getUsername());
-            result.put("msg", "注册失败，用户名已存在。");
+            result.set("result", one.getUsername());
+            result.set("msg", "注册失败，用户名已存在。");
             return ResponseEntity.badRequest().body(result);
         }
         lambdaQueryWrapper.or().eq(StrUtil.isNotBlank(user.getEmail()), SysUser::getEmail, user.getEmail());
         SysUser one2 = this.sysUserService.getOne(lambdaQueryWrapper);
         if (one2 != null) {
-            result.put("result", one2.getEmail());
-            result.put("msg", "注册失败，邮箱已存在。");
+            result.set("result", one2.getEmail());
+            result.set("msg", "注册失败，邮箱已存在。");
             return ResponseEntity.badRequest().body(result);
         }
         List<SysUser> userList = new ArrayList<>();
         userList.add(user);
         boolean b = this.sysUserService.saveBatch(userList);
-        result.put("result", b);
-        result.put("msg", "注册成功。");
+        result.set("result", b);
+        result.set("msg", "注册成功。");
         return ResponseEntity.ok(result);
     }
 
