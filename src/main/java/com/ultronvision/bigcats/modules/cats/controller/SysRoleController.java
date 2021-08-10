@@ -63,7 +63,7 @@ public class SysRoleController {
                 "          \"defaultCheck\": false\n" +
                 "        }],\n" +
                 "        \"actionList\": [\"delete\", \"edit\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -97,7 +97,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"query\", \"get\", \"edit\", \"delete\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -126,7 +126,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"add\", \"import\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -160,7 +160,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"query\", \"add\", \"get\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -189,7 +189,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"add\", \"get\", \"edit\", \"delete\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -217,8 +217,8 @@ public class SysRoleController {
                 "          \"defaultCheck\": false\n" +
                 "        }\n" +
                 "        ],\n" +
-                "        \"actionList\": null,\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"actionList\": \"null\",\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -226,8 +226,8 @@ public class SysRoleController {
                 "        \"permissionName\": \"测试权限\",\n" +
                 "        \"actions\": [],\n" +
                 "        \"actionEntitySet\": [],\n" +
-                "        \"actionList\": null,\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"actionList\": \"null\",\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -266,7 +266,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"add\", \"get\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      }\n" +
                 "      ]\n" +
                 "    },\n" +
@@ -310,7 +310,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"add\", \"get\", \"delete\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -334,7 +334,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"add\", \"query\", \"get\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -358,7 +358,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"add\", \"get\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -387,7 +387,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"add\", \"query\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -411,7 +411,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"add\", \"get\", \"edit\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -434,8 +434,8 @@ public class SysRoleController {
                 "          \"defaultCheck\": false\n" +
                 "        }\n" +
                 "        ],\n" +
-                "        \"actionList\": null,\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"actionList\": \"null\",\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -444,7 +444,7 @@ public class SysRoleController {
                 "        \"actions\": [],\n" +
                 "        \"actionEntitySet\": [],\n" +
                 "        \"actionList\": [\"add\", \"edit\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"admin\",\n" +
@@ -473,7 +473,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"add\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      }\n" +
                 "      ]\n" +
                 "    },\n" +
@@ -502,7 +502,7 @@ public class SysRoleController {
                 "        }\n" +
                 "        ],\n" +
                 "        \"actionList\": [\"query\"],\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "\n" +
                 "      {\n" +
@@ -511,8 +511,8 @@ public class SysRoleController {
                 "        \"permissionName\": \"营销管理\",\n" +
                 "        \"actions\": [],\n" +
                 "        \"actionEntitySet\": [],\n" +
-                "        \"actionList\": null,\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"actionList\": \"null\",\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"user\",\n" +
@@ -530,8 +530,8 @@ public class SysRoleController {
                 "          \"defaultCheck\": false\n" +
                 "        }\n" +
                 "        ],\n" +
-                "        \"actionList\": null,\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"actionList\": \"null\",\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"user\",\n" +
@@ -539,8 +539,8 @@ public class SysRoleController {
                 "        \"permissionName\": \"菜单管理\",\n" +
                 "        \"actions\": [],\n" +
                 "        \"actionEntitySet\": [],\n" +
-                "        \"actionList\": null,\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"actionList\": \"null\",\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "\n" +
                 "      {\n" +
@@ -559,8 +559,8 @@ public class SysRoleController {
                 "          \"defaultCheck\": false\n" +
                 "        }\n" +
                 "        ],\n" +
-                "        \"actionList\": null,\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"actionList\": \"null\",\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"user\",\n" +
@@ -568,8 +568,8 @@ public class SysRoleController {
                 "        \"permissionName\": \"权限管理\",\n" +
                 "        \"actions\": [],\n" +
                 "        \"actionEntitySet\": [],\n" +
-                "        \"actionList\": null,\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"actionList\": \"null\",\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"user\",\n" +
@@ -577,8 +577,8 @@ public class SysRoleController {
                 "        \"permissionName\": \"角色管理\",\n" +
                 "        \"actions\": [],\n" +
                 "        \"actionEntitySet\": [],\n" +
-                "        \"actionList\": null,\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"actionList\": \"null\",\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "\n" +
                 "      {\n" +
@@ -587,8 +587,8 @@ public class SysRoleController {
                 "        \"permissionName\": \"测试权限\",\n" +
                 "        \"actions\": [],\n" +
                 "        \"actionEntitySet\": [],\n" +
-                "        \"actionList\": null,\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"actionList\": \"null\",\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      },\n" +
                 "      {\n" +
                 "        \"roleId\": \"user\",\n" +
@@ -596,8 +596,8 @@ public class SysRoleController {
                 "        \"permissionName\": \"用户管理\",\n" +
                 "        \"actions\": [],\n" +
                 "        \"actionEntitySet\": [],\n" +
-                "        \"actionList\": null,\n" +
-                "        \"dataAccess\": null\n" +
+                "        \"actionList\": \"null\",\n" +
+                "        \"dataAccess\": \"null\"\n" +
                 "      }\n" +
                 "      ]\n" +
                 "    }\n" +

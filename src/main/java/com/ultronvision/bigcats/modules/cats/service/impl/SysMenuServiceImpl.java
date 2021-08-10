@@ -38,14 +38,14 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
         return list;
     }
     public void findAllChild(SysMenu sysMenu ) {
-        LambdaQueryWrapper<SysMenu> wrapper = new LambdaQueryWrapper<>();
-        wrapper.eq(SysMenu::getParentId, sysMenu.getId()).orderByDesc(true, SysMenu::getSortNum);
+        LambdaQueryWrapper<SysMenu> lambdaQueryWrapper = new LambdaQueryWrapper<>();
+        lambdaQueryWrapper.eq(SysMenu::getParentId, sysMenu.getId()).orderByDesc(SysMenu::getSortNum);
         // 首次进入这个方法时，查出的是二级节点列表
         // 递归调用时，就能依次查出三、四、五等等级别的节点列表，
         // 递归能实现不同节点级别的无限调用,这个层次不易太深，否则有性能问题
-        List<SysMenu> sysMenuList = this.list(wrapper);
-        sysMenu.setChildren(sysMenuList);
+        List<SysMenu> sysMenuList = this.list(lambdaQueryWrapper);
         if (sysMenuList.size() > 0) {
+            sysMenu.setChildren(sysMenuList);
             sysMenuList.forEach(this::findAllChild);
         }
     }

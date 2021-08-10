@@ -51,6 +51,7 @@ public class ShiroConfig {
         filterMap.put("/auth/login", "anon");
         filterMap.put("/auth/account/sms", "anon");
         filterMap.put("/auth/2step-code", "anon");
+        filterMap.put("/hik/**", "anon");
         filterMap.put("/**", "oauth2");
         shiroFilterFactoryBean.setFilterChainDefinitionMap(filterMap);
         return shiroFilterFactoryBean;

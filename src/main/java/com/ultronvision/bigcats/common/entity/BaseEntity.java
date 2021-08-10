@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.io.Serializable;
@@ -14,8 +15,9 @@ import java.util.Date;
  * @author oldwei
  * @date 2021/5/31 2:50 下午
  */
+@EqualsAndHashCode(callSuper = true)
 @Data
-public class BaseEntity implements Serializable {
+public class BaseEntity extends QueryRequest {
     private static final long serialVersionUID = 3444128537672495830L;
     /**
      * 主键ID

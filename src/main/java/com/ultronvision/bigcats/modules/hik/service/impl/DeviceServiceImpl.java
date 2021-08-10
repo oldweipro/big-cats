@@ -1,5 +1,6 @@
 package com.ultronvision.bigcats.modules.hik.service.impl;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ultronvision.bigcats.common.entity.hik.Device;
 import com.ultronvision.bigcats.modules.hik.mapper.DeviceMapper;
@@ -16,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Slf4j
 @Service
+@DS("hik")
 @RequiredArgsConstructor
 @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
 public class DeviceServiceImpl extends ServiceImpl<DeviceMapper, Device> implements IDeviceService {

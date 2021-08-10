@@ -46,10 +46,10 @@ public class SysUserController extends BaseController {
                 "    \"id\": \"4291d7da9005377ec9aec4a71ea837f\",\n" +
                 "    \"name\": \"天野远子\",\n" +
                 "    \"username\": \"admin\",\n" +
-                "    \"password\": null,\n" +
+                "    \"password\": \"null\",\n" +
                 "    \"avatar\": \"/avatar2.jpg\",\n" +
                 "    \"status\": 1,\n" +
-                "    \"telephone\": null,\n" +
+                "    \"telephone\": \"null\",\n" +
                 "    \"lastLoginIp\": \"27.154.74.117\",\n" +
                 "    \"lastLoginTime\": 1534837621348,\n" +
                 "    \"creatorId\": \"admin\",\n" +
@@ -94,8 +94,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"删除\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }, {\n" +
                 "      \"roleId\": \"admin\",\n" +
                 "      \"permissionId\": \"exception\",\n" +
@@ -122,8 +122,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"删除\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }, {\n" +
                 "      \"roleId\": \"admin\",\n" +
                 "      \"permissionId\": \"result\",\n" +
@@ -150,8 +150,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"删除\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }, {\n" +
                 "      \"roleId\": \"admin\",\n" +
                 "      \"permissionId\": \"profile\",\n" +
@@ -178,8 +178,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"删除\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }, {\n" +
                 "      \"roleId\": \"admin\",\n" +
                 "      \"permissionId\": \"table\",\n" +
@@ -202,8 +202,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"修改\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }, {\n" +
                 "      \"roleId\": \"admin\",\n" +
                 "      \"permissionId\": \"form\",\n" +
@@ -230,8 +230,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"删除\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }, {\n" +
                 "      \"roleId\": \"admin\",\n" +
                 "      \"permissionId\": \"order\",\n" +
@@ -258,8 +258,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"删除\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }, {\n" +
                 "      \"roleId\": \"admin\",\n" +
                 "      \"permissionId\": \"permission\",\n" +
@@ -282,8 +282,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"删除\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }, {\n" +
                 "      \"roleId\": \"admin\",\n" +
                 "      \"permissionId\": \"role\",\n" +
@@ -306,8 +306,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"删除\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }, {\n" +
                 "      \"roleId\": \"admin\",\n" +
                 "      \"permissionId\": \"table\",\n" +
@@ -334,8 +334,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"删除\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }, {\n" +
                 "      \"roleId\": \"admin\",\n" +
                 "      \"permissionId\": \"user\",\n" +
@@ -366,8 +366,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"导出\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }, {\n" +
                 "      \"roleId\": \"admin\",\n" +
                 "      \"permissionId\": \"support\",\n" +
@@ -398,8 +398,8 @@ public class SysUserController extends BaseController {
                 "        \"describe\": \"导出\",\n" +
                 "        \"defaultCheck\": false\n" +
                 "      }],\n" +
-                "      \"actionList\": null,\n" +
-                "      \"dataAccess\": null\n" +
+                "      \"actionList\": \"null\",\n" +
+                "      \"dataAccess\": \"null\"\n" +
                 "    }]\n" +
                 "  }";
         JSONObject roleObj = JSONUtil.parseObj(roleObjStr);
@@ -412,19 +412,18 @@ public class SysUserController extends BaseController {
     /**
      * 查询用户信息列表
      *
-     * @param request
      * @param sysUser
      * @return
      */
     @GetMapping
-    public ResponseEntity<JSONObject> user(QueryRequest request, SysUser sysUser) {
-        IPage<SysUser> sysUserPage = new Page<>(request.getPageNo(), request.getPageSize());
+    public ResponseEntity<JSONObject> user(SysUser sysUser) {
+        IPage<SysUser> sysUserPage = new Page<>(sysUser.getPageNo(), sysUser.getPageSize());
         // 创建条件构造器
         LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         // 构造条件
         lambdaQueryWrapper.like(StrUtil.isNotBlank(sysUser.getUsername()), SysUser::getUsername, sysUser.getUsername())
-                .ge(StrUtil.isNotBlank(request.getCreateTimeFrom()), SysUser::getCreateTime, request.getCreateTimeFrom())
-                .le(StrUtil.isNotBlank(request.getCreateTimeTo()), SysUser::getCreateTime, request.getCreateTimeTo())
+                .ge(StrUtil.isNotBlank(sysUser.getCreateTimeFrom()), SysUser::getCreateTime, sysUser.getCreateTimeFrom())
+                .le(StrUtil.isNotBlank(sysUser.getCreateTimeTo()), SysUser::getCreateTime, sysUser.getCreateTimeTo())
                 .orderByDesc(SysUser::getCreateTime);
         Map<String, Object> dataTable = BigCatsUtil.getDataTable(this.sysUserService.page(sysUserPage, lambdaQueryWrapper));
         JSONObject result = new JSONObject();

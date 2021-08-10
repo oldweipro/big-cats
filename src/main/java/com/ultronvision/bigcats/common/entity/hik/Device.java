@@ -1,5 +1,7 @@
 package com.ultronvision.bigcats.common.entity.hik;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.ultronvision.bigcats.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,10 +17,21 @@ public class Device extends BaseEntity {
     private String ip;
     private String username;
     private String password;
-    private Integer port;
+    private Short port = 8000;
     private String title;
+    @TableField(exist = false)
+    private String loginStatus;
+    @TableField(exist = false)
+    private String pushStatus;
+    @TableField(exist = false)
+    private String alarmStatus;
+    @JsonFormat(shape = JsonFormat.Shape.STRING)
     private Long categoryId;
     private String flv;
     private String hls;
     private String rtmp;
+    private Boolean useAsync = false;
+    private Byte type;
+    private String rtspUrl;
+    private String pushUrl;
 }
