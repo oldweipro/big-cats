@@ -8,6 +8,8 @@ import com.ultronvision.bigcats.common.entity.BaseController;
 import com.ultronvision.bigcats.common.entity.cats.SysUser;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserService;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserTokenService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -24,6 +26,7 @@ import java.util.*;
  * @author oldwei
  * @date 2021/5/31 5:32 下午
  */
+@Api("登录相关")
 @Slf4j
 @RestController
 @RequestMapping("auth")
@@ -39,6 +42,7 @@ public class AuthController extends BaseController {
      * @return
      */
     @PostMapping("register")
+    @ApiOperation("用户注册")
     public ResponseEntity<JSONObject> registerWebsite(@RequestBody SysUser user) {
         LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
         lambdaQueryWrapper.eq(StrUtil.isNotBlank(user.getUsername()), SysUser::getUsername, user.getUsername());

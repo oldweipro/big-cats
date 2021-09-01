@@ -13,10 +13,9 @@ spring:
       strict: false #设置严格模式,默认false不启动. 启动后在未匹配到指定数据源时候会抛出异常,不启动则使用默认数据源.
       datasource:
         master:
-          url: jdbc:mysql://127.0.0.1:3306/big_cats?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-          username: root
-          password: 123456
-        hik:
-          url: jdbc:mysql://127.0.0.1:3306/hik?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-          username: root
-          password: 123456
+          url: jdbc:mysql://home.oldwei.com:3306/big_cats?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+          username: big_cats
+          password: sD8RzAj7kdxXndtb
+springfox:
+  swagger2:
+    enabled: true
