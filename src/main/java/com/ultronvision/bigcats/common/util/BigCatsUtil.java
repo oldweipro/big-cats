@@ -2,7 +2,6 @@ package com.ultronvision.bigcats.common.util;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.ultronvision.bigcats.common.constant.PageConstant;
-import com.ultronvision.bigcats.common.entity.hik.Device;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -16,6 +15,13 @@ import java.util.Map;
  * @date 2021-6-8 16:30
  */
 public class BigCatsUtil {
+
+    /**
+     * 组装分页数据
+     *
+     * @param pageInfo
+     * @return
+     */
     public static Map<String, Object> getDataTable(IPage<?> pageInfo) {
         Map<String, Object> data = new HashMap<>(5);
         data.put(PageConstant.DATA, pageInfo.getRecords());
@@ -26,6 +32,13 @@ public class BigCatsUtil {
         return data;
     }
 
+    /**
+     * http post请求
+     *
+     * @param url
+     * @param obj
+     * @return
+     */
     public static String httpPost(String url, Object obj) {
         HttpHeaders httpHeaders = new HttpHeaders();
         httpHeaders.setContentType(MediaType.APPLICATION_JSON);
@@ -34,6 +47,12 @@ public class BigCatsUtil {
         return restTemplate.postForObject(url, requestEntity, String.class);
     }
 
+    /**
+     * http get请求
+     *
+     * @param url
+     * @return
+     */
     public static String httpGet(String url) {
         RestTemplate restTemplate = new RestTemplate();
         return restTemplate.getForObject(url, String.class);

@@ -64,6 +64,8 @@
             <artifactId>fastjson</artifactId>
             <version>1.2.75</version>
         </dependency>
+
+        <!-- swagger -->
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-swagger2</artifactId>

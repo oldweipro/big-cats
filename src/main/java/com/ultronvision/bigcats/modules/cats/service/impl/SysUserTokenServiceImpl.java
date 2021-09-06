@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.ultronvision.bigcats.common.entity.cats.SysUserToken;
 import com.ultronvision.bigcats.modules.cats.mapper.SysUserTokenMapper;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserTokenService;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -64,5 +65,7 @@ public class SysUserTokenServiceImpl extends ServiceImpl<SysUserTokenMapper, Sys
         userToken.setUserId(userId);
         userToken.setToken(token);
         this.updateById(userToken);
+        //调用shiro的logout
+        SecurityUtils.getSubject().logout();
     }
 }

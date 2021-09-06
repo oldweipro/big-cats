@@ -54,7 +54,6 @@ public class DeviceController extends BaseController {
         Map<String, Object> dataTable = BigCatsUtil.getDataTable(deviceIPage);
         JSONObject result = new JSONObject();
         result.put("result", dataTable);
-        System.out.println(dataTable);
         return ResponseEntity.ok(result);
     }
 

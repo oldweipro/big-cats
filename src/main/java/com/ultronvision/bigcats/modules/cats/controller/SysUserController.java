@@ -9,7 +9,6 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ultronvision.bigcats.common.entity.BaseController;
-import com.ultronvision.bigcats.common.entity.QueryRequest;
 import com.ultronvision.bigcats.common.entity.cats.SysUser;
 import com.ultronvision.bigcats.common.util.BigCatsUtil;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserService;
@@ -417,6 +416,7 @@ public class SysUserController extends BaseController {
      */
     @GetMapping
     public ResponseEntity<JSONObject> user(SysUser sysUser) {
+        getUser();
         IPage<SysUser> sysUserPage = new Page<>(sysUser.getPageNo(), sysUser.getPageSize());
         // 创建条件构造器
         LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();

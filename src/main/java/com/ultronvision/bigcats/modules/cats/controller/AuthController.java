@@ -100,6 +100,7 @@ public class AuthController extends BaseController {
         String token = this.sysUserTokenService.createToken(one.getId());
 
         map.put("token", token);
+        map.put("tenantId", one.getTenantId());
         result.put("result", map);
         return ResponseEntity.ok(result);
     }

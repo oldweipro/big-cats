@@ -1,4 +1,4 @@
-package com.ultronvision.bigcats.common.entity.oauth2;
+package com.ultronvision.bigcats.common.oauth2;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;

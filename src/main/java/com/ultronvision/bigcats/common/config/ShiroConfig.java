@@ -1,7 +1,7 @@
 package com.ultronvision.bigcats.common.config;
 
-import com.ultronvision.bigcats.common.entity.oauth2.Oauth2Filter;
-import com.ultronvision.bigcats.common.entity.oauth2.Oauth2Realm;
+import com.ultronvision.bigcats.common.oauth2.Oauth2Filter;
+import com.ultronvision.bigcats.common.oauth2.Oauth2Realm;
 import org.apache.shiro.mgt.SecurityManager;
 import org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor;
 import org.apache.shiro.spring.web.ShiroFilterFactoryBean;

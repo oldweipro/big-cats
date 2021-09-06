@@ -1,4 +1,4 @@
-package com.ultronvision.bigcats.common.entity.oauth2;
+package com.ultronvision.bigcats.common.oauth2;
 
 import com.ultronvision.bigcats.common.entity.cats.SysUser;
 import com.ultronvision.bigcats.common.entity.cats.SysUserToken;
