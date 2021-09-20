@@ -1,6 +1,8 @@
 package com.ultronvision.bigcats.modules.hik.controller;
 
 import cn.hutool.core.util.StrUtil;
+import cn.hutool.http.HttpUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.ultronvision.bigcats.common.constant.ParamsConstant;
 import com.ultronvision.bigcats.common.entity.BaseController;
 import com.ultronvision.bigcats.common.entity.hik.Device;
@@ -22,7 +24,6 @@ import org.springframework.web.bind.annotation.*;
 public class HikApiController extends BaseController {
     private final IDeviceService deviceService;
 
-
     @PostMapping("deviceLogin")
     public ResponseEntity<String> deviceLogin(@RequestBody Device device) {
         Device getById = this.deviceService.getById(device.getId());
@@ -38,7 +39,7 @@ public class HikApiController extends BaseController {
 
     @PostMapping("deviceSetupAlarm")
     public ResponseEntity<String> deviceSetupAlarm(@RequestBody Device device) {
-        String body = BigCatsUtil.httpPost(ParamsConstant.URL + "api/device/setupAlarm", device);
+        String body = HttpUtil.post(ParamsConstant.URL + "api/device/setupAlarm", JSONObject.toJSONString(device));
         return ResponseEntity.ok(body);
     }
 

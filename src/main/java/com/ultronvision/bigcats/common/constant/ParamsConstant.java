@@ -6,5 +6,5 @@ package com.ultronvision.bigcats.common.constant;
  */
 public interface ParamsConstant {
 //    String URL = "http://139.129.119.218:8686/";
-    String URL = "http://192.168.3.12:8089/";
+    String URL = "http://localhost:8089/";
 }

@@ -2,8 +2,7 @@ package com.ultronvision.bigcats.modules.cats.controller;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.crypto.SecureUtil;
-import cn.hutool.json.JSONObject;
-import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
@@ -58,7 +57,7 @@ public class SysUserController extends BaseController {
                 "    \"roleId\": \"admin\",\n" +
                 "    \"role\": {}\n" +
                 "  }";
-        JSONObject userInfo = JSONUtil.parseObj(userInfoStr);
+        JSONObject userInfo = JSONObject.parseObject(userInfoStr);
         String roleObjStr = "{\n" +
                 "    \"id\": \"admin\",\n" +
                 "    \"name\": \"管理员\",\n" +
@@ -401,10 +400,10 @@ public class SysUserController extends BaseController {
                 "      \"dataAccess\": \"null\"\n" +
                 "    }]\n" +
                 "  }";
-        JSONObject roleObj = JSONUtil.parseObj(roleObjStr);
-        userInfo.set("role", roleObj);
+        JSONObject roleObj = JSONObject.parseObject(roleObjStr);
+        userInfo.put("role", roleObj);
         JSONObject result = new JSONObject();
-        result.set("result", userInfo);
+        result.put("result", userInfo);
         return result;
     }
 
@@ -416,7 +415,6 @@ public class SysUserController extends BaseController {
      */
     @GetMapping
     public ResponseEntity<JSONObject> user(SysUser sysUser) {
-        getUser();
         IPage<SysUser> sysUserPage = new Page<>(sysUser.getPageNo(), sysUser.getPageSize());
         // 创建条件构造器
         LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
@@ -427,7 +425,7 @@ public class SysUserController extends BaseController {
                 .orderByDesc(SysUser::getCreateTime);
         Map<String, Object> dataTable = BigCatsUtil.getDataTable(this.sysUserService.page(sysUserPage, lambdaQueryWrapper));
         JSONObject result = new JSONObject();
-        result.set("result", dataTable);
+        result.put("result", dataTable);
         return ResponseEntity.ok(result);
     }
 
@@ -451,7 +449,7 @@ public class SysUserController extends BaseController {
         // 构造条件
         boolean isSave = this.sysUserService.save(sysUser);
         JSONObject result = new JSONObject();
-        result.set("result", isSave);
+        result.put("result", isSave);
         return ResponseEntity.ok(result);
     }
 
@@ -472,7 +470,7 @@ public class SysUserController extends BaseController {
         // 构造条件
         boolean isSave = this.sysUserService.updateById(sysUser);
         JSONObject result = new JSONObject();
-        result.set("result", isSave);
+        result.put("result", isSave);
         return ResponseEntity.ok(result);
     }
 
@@ -489,7 +487,7 @@ public class SysUserController extends BaseController {
         List<String> list = Arrays.asList(ids);
         boolean removeByIds = this.sysUserService.removeByIds(list);
         JSONObject result = new JSONObject();
-        result.set("result", removeByIds);
+        result.put("result", removeByIds);
         return ResponseEntity.ok(result);
     }
 }

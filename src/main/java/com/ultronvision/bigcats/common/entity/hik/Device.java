@@ -6,13 +6,15 @@ import com.ultronvision.bigcats.common.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import java.io.Serializable;
+
 /**
  * @author oldwei
  * @date 2021-8-2 09:54
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class Device extends BaseEntity {
+public class Device extends BaseEntity implements Serializable {
     private static final long serialVersionUID = -214941278617300948L;
     private String ip;
     private String username;
@@ -34,4 +36,5 @@ public class Device extends BaseEntity {
     private Byte type;
     private String rtspUrl;
     private String pushUrl;
+    private String deviceSn;
 }

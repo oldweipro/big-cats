@@ -9,6 +9,7 @@ import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerIntercept
 import com.baomidou.mybatisplus.extension.plugins.inner.TenantLineInnerInterceptor;
 import com.ultronvision.bigcats.common.constant.CommonConstant;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.shiro.SecurityUtils;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,10 +37,10 @@ public class MybatisPlusConfig {
     /**
      * 哪些表需要做多租户 表需要添加一个字段 tenant_id
      */
-    private static final List<String> tenantTable = new ArrayList<String>();
+    private static final List<String> TENANT_TABLE = new ArrayList<>();
 
     static {
-        tenantTable.add("sys_user");
+        TENANT_TABLE.add("sys_user");
     }
 
     /**
@@ -84,20 +85,17 @@ public class MybatisPlusConfig {
             public boolean ignoreTable(String tableName) {
                 HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
                 String tenantId = request.getHeader(CommonConstant.TENANT_ID);
+                // 租户id为0判定未登录
                 if (StrUtil.equals("0", StrUtil.isBlankIfStr(tenantId) ? "0" : tenantId)) {
-                    if (StrUtil.equals("sys_user", tableName) || StrUtil.equals("sys_user_token", tableName)) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return true;
                 } else {
-                    for (String temp : tenantTable) {
+                    for (String temp : TENANT_TABLE) {
                         if (temp.equalsIgnoreCase(tableName)) {
                             return false;
                         }
                     }
+                    return true;
                 }
-                return true;
             }
         }));
         //如果用了分页插件注意先 add TenantLineInnerInterceptor 再 add PaginationInnerInterceptor

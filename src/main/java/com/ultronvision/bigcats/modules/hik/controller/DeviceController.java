@@ -1,6 +1,8 @@
 package com.ultronvision.bigcats.modules.hik.controller;
 
 import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
+import cn.hutool.http.HttpUtil;
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
@@ -8,9 +10,12 @@ import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.ultronvision.bigcats.common.constant.ParamsConstant;
 import com.ultronvision.bigcats.common.entity.BaseController;
+import com.ultronvision.bigcats.common.entity.QueryRequest;
 import com.ultronvision.bigcats.common.entity.hik.Device;
+import com.ultronvision.bigcats.common.entity.hik.ProbeMatch;
 import com.ultronvision.bigcats.common.util.BigCatsUtil;
 import com.ultronvision.bigcats.modules.hik.service.IDeviceService;
+import com.ultronvision.bigcats.modules.hik.service.IProbeMatchService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -31,6 +36,17 @@ import java.util.Map;
 public class DeviceController extends BaseController {
 
     private final IDeviceService deviceService;
+    private final IProbeMatchService probeMatchService;
+
+    @GetMapping("search")
+    public ResponseEntity<JSONObject> deviceSearch(QueryRequest queryRequest) {
+        LambdaQueryWrapper<ProbeMatch> queryWrapper = new LambdaQueryWrapper<>();
+        Page<ProbeMatch> page = this.probeMatchService.page(new Page<>(queryRequest.getPageNo(), queryRequest.getPageSize()), queryWrapper);
+        Map<String, Object> dataTable = BigCatsUtil.getDataTable(page);
+        JSONObject result = new JSONObject();
+        result.put("result", dataTable);
+        return ResponseEntity.ok(result);
+    }
 
     /**
      * 分页列表
@@ -44,11 +60,11 @@ public class DeviceController extends BaseController {
         IPage<Device> page = new Page<>(device.getPageNo(), device.getPageSize());
         IPage<Device> deviceIPage = this.deviceService.page(page, lambdaQueryWrapper);
         deviceIPage.getRecords().forEach(deviceObj -> {
-            String loginStatus = BigCatsUtil.httpGet(ParamsConstant.URL + "api/device/deviceLoginStatus?ip=" + deviceObj.getIp());
+            String loginStatus = BigCatsUtil.httpGet(ParamsConstant.URL + "api/device/deviceLoginStatus?deviceSn=" + deviceObj.getDeviceSn());
             deviceObj.setLoginStatus(loginStatus);
-            String pushStatus = BigCatsUtil.httpGet(ParamsConstant.URL + "api/device/devicePushStatus?ip=" + deviceObj.getIp());
+            String pushStatus = BigCatsUtil.httpGet(ParamsConstant.URL + "api/device/devicePushStatus?deviceSn=" + deviceObj.getDeviceSn());
             deviceObj.setPushStatus(pushStatus);
-            String alarmStatus = BigCatsUtil.httpGet(ParamsConstant.URL + "api/device/deviceAlarmStatus?ip=" + deviceObj.getIp());
+            String alarmStatus = BigCatsUtil.httpGet(ParamsConstant.URL + "api/device/deviceAlarmStatus?deviceSn=" + deviceObj.getDeviceSn());
             deviceObj.setAlarmStatus(alarmStatus);
         });
         Map<String, Object> dataTable = BigCatsUtil.getDataTable(deviceIPage);
@@ -69,11 +85,20 @@ public class DeviceController extends BaseController {
         return ResponseEntity.ok(result);
     }
 
+    /**
+     * 添加设备
+     *
+     * @param device
+     * @return
+     */
     @PostMapping
     public ResponseEntity<JSONObject> addDevice(@RequestBody Device device) {
-        boolean save = this.deviceService.save(device);
+        String post = HttpUtil.post(ParamsConstant.URL + "api/device/deviceLogin", JSONObject.toJSONString(device));
+        if (StrUtil.equals("true", post)) {
+            this.deviceService.save(device);
+        }
         JSONObject result = new JSONObject();
-        result.put("result", save);
+        result.put("result", post);
         return ResponseEntity.ok(result);
     }
 
