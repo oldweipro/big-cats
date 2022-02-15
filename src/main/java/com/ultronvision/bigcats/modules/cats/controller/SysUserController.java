@@ -8,8 +8,8 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.ultronvision.bigcats.common.entity.BaseController;
-import com.ultronvision.bigcats.common.entity.cats.SysUser;
+import com.ultronvision.bigcats.modules.cats.entity.BaseController;
+import com.ultronvision.bigcats.modules.cats.entity.SysUser;
 import com.ultronvision.bigcats.common.util.BigCatsUtil;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserService;
 import lombok.RequiredArgsConstructor;
@@ -415,7 +415,7 @@ public class SysUserController extends BaseController {
      * @return
      */
     @GetMapping
-    public ResponseEntity<JSONObject> user(SysUser sysUser) {
+    public ResponseEntity<IPage<SysUser>> user(SysUser sysUser) {
         getUser();
         IPage<SysUser> sysUserPage = new Page<>(sysUser.getPageNo(), sysUser.getPageSize());
         // 创建条件构造器
@@ -425,10 +425,8 @@ public class SysUserController extends BaseController {
                 .ge(StrUtil.isNotBlank(sysUser.getCreateTimeFrom()), SysUser::getCreateTime, sysUser.getCreateTimeFrom())
                 .le(StrUtil.isNotBlank(sysUser.getCreateTimeTo()), SysUser::getCreateTime, sysUser.getCreateTimeTo())
                 .orderByDesc(SysUser::getCreateTime);
-        Map<String, Object> dataTable = BigCatsUtil.getDataTable(this.sysUserService.page(sysUserPage, lambdaQueryWrapper));
-        JSONObject result = new JSONObject();
-        result.set("result", dataTable);
-        return ResponseEntity.ok(result);
+        IPage<SysUser> page = this.sysUserService.page(sysUserPage, lambdaQueryWrapper);
+        return ResponseEntity.ok(page);
     }
 
     /**

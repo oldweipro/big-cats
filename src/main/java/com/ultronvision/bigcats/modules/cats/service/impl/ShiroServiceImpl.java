@@ -1,9 +1,9 @@
 package com.ultronvision.bigcats.modules.cats.service.impl;
 
 import cn.hutool.core.util.StrUtil;
-import com.ultronvision.bigcats.common.entity.cats.SysMenu;
-import com.ultronvision.bigcats.common.entity.cats.SysUser;
-import com.ultronvision.bigcats.common.entity.cats.SysUserToken;
+import com.ultronvision.bigcats.modules.cats.entity.SysMenu;
+import com.ultronvision.bigcats.modules.cats.entity.SysUser;
+import com.ultronvision.bigcats.modules.cats.entity.SysUserToken;
 import com.ultronvision.bigcats.modules.cats.mapper.SysUserMapper;
 import com.ultronvision.bigcats.modules.cats.mapper.SysUserTokenMapper;
 import com.ultronvision.bigcats.modules.cats.mapper.SysMenuMapper;

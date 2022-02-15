@@ -1,6 +1,6 @@
-package com.ultronvision.bigcats.common.entity.cats;
+package com.ultronvision.bigcats.modules.cats.entity;
 
-import com.ultronvision.bigcats.common.entity.BaseEntity;
+import com.ultronvision.bigcats.modules.cats.entity.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 

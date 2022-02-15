@@ -2,7 +2,7 @@ package com.ultronvision.bigcats.modules.cats.service.impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ultronvision.bigcats.common.entity.cats.SysMenu;
+import com.ultronvision.bigcats.modules.cats.entity.SysMenu;
 import com.ultronvision.bigcats.modules.cats.mapper.SysMenuMapper;
 import com.ultronvision.bigcats.modules.cats.service.ISysMenuService;
 import lombok.RequiredArgsConstructor;

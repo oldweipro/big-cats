@@ -1,5 +1,6 @@
 package com.ultronvision.bigcats.modules.cats.controller;
 
+import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
 import lombok.RequiredArgsConstructor;
@@ -608,6 +609,158 @@ public class SysRoleController {
                 "    \"totalCount\": 5\n" +
                 "  }";
         JSONObject role = JSONUtil.parseObj(roleStr);
+        JSONObject result = new JSONObject();
+        result.set("result", role);
+        return result;
+    }
+
+    @GetMapping("/getRole")
+    public JSONObject list() {
+        String roleStr = "[{\n" +
+                "    'id': 'marketing',\n" +
+                "    'name': '营销管理',\n" +
+                "    'describe': null,\n" +
+                "    'status': 1,\n" +
+                "    'actionData': '[{\"action\":\"query\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"详情\"},{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"},{\"action\":\"delete\",\"defaultCheck\":false,\"describe\":\"删除\"}]',\n" +
+                "    'sptDaTypes': null,\n" +
+                "    'optionalFields': null,\n" +
+                "    'parents': null,\n" +
+                "    'type': null,\n" +
+                "    'deleted': 0,\n" +
+                "    'actions': [\n" +
+                "      'add',\n" +
+                "      'query',\n" +
+                "      'get',\n" +
+                "      'edit',\n" +
+                "      'delete'\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    'id': 'member',\n" +
+                "    'name': '会员管理',\n" +
+                "    'describe': null,\n" +
+                "    'status': 1,\n" +
+                "    'actionData': '[{\"action\":\"query\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"详情\"},{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"},{\"action\":\"delete\",\"defaultCheck\":false,\"describe\":\"删除\"}]',\n" +
+                "    'sptDaTypes': null,\n" +
+                "    'optionalFields': '[]',\n" +
+                "    'parents': null,\n" +
+                "    'type': 'default',\n" +
+                "    'deleted': 0,\n" +
+                "    'actions': [\n" +
+                "      'add',\n" +
+                "      'query',\n" +
+                "      'get',\n" +
+                "      'edit',\n" +
+                "      'delete'\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    'id': 'menu',\n" +
+                "    'name': '菜单管理',\n" +
+                "    'describe': null,\n" +
+                "    'status': 1,\n" +
+                "    'actionData': '[{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"import\",\"defaultCheck\":false,\"describe\":\"导入\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"}]',\n" +
+                "    'sptDaTypes': null,\n" +
+                "    'optionalFields': '[]',\n" +
+                "    'parents': null,\n" +
+                "    'type': 'default',\n" +
+                "    'deleted': 0,\n" +
+                "    'actions': [\n" +
+                "      'add',\n" +
+                "      'import',\n" +
+                "      'get',\n" +
+                "      'edit'\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    'id': 'order',\n" +
+                "    'name': '订单管理',\n" +
+                "    'describe': null,\n" +
+                "    'status': 1,\n" +
+                "    'actionData': '[{\"action\":\"query\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"详情\"},{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"},{\"action\":\"delete\",\"defaultCheck\":false,\"describe\":\"删除\"}]',\n" +
+                "    'sptDaTypes': null,\n" +
+                "    'optionalFields': '[]',\n" +
+                "    'parents': null,\n" +
+                "    'type': 'default',\n" +
+                "    'deleted': 0,\n" +
+                "    'actions': [\n" +
+                "      'add',\n" +
+                "      'query',\n" +
+                "      'get',\n" +
+                "      'edit',\n" +
+                "      'delete'\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    'id': 'permission',\n" +
+                "    'name': '权限管理',\n" +
+                "    'describe': null,\n" +
+                "    'status': 1,\n" +
+                "    'actionData': '[{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"},{\"action\":\"delete\",\"defaultCheck\":false,\"describe\":\"删除\"}]',\n" +
+                "    'sptDaTypes': null,\n" +
+                "    'optionalFields': '[]',\n" +
+                "    'parents': null,\n" +
+                "    'type': 'default',\n" +
+                "    'deleted': 0,\n" +
+                "    'actions': [\n" +
+                "      'add',\n" +
+                "      'get',\n" +
+                "      'edit',\n" +
+                "      'delete'\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    'id': 'role',\n" +
+                "    'name': '角色管理',\n" +
+                "    'describe': null,\n" +
+                "    'status': 1,\n" +
+                "    'actionData': '[{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"},{\"action\":\"delete\",\"defaultCheck\":false,\"describe\":\"删除\"}]',\n" +
+                "    'sptDaTypes': null,\n" +
+                "    'optionalFields': '[]',\n" +
+                "    'parents': null,\n" +
+                "    'type': 'default',\n" +
+                "    'deleted': 0,\n" +
+                "    'actions': [\n" +
+                "      'add',\n" +
+                "      'get',\n" +
+                "      'edit',\n" +
+                "      'delete'\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    'id': 'test',\n" +
+                "    'name': '测试权限',\n" +
+                "    'describe': null,\n" +
+                "    'status': 1,\n" +
+                "    'actionData': '[{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"详情\"}]',\n" +
+                "    'sptDaTypes': null,\n" +
+                "    'optionalFields': '[]',\n" +
+                "    'parents': null,\n" +
+                "    'type': 'default',\n" +
+                "    'deleted': 0,\n" +
+                "    'actions': [\n" +
+                "      'add',\n" +
+                "      'get'\n" +
+                "    ]\n" +
+                "  },\n" +
+                "  {\n" +
+                "    'id': 'user',\n" +
+                "    'name': '用户管理',\n" +
+                "    'describe': null,\n" +
+                "    'status': 1,\n" +
+                "    'actionData': '[{\"action\":\"query\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"详情\"},{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"},{\"action\":\"delete\",\"defaultCheck\":false,\"describe\":\"删除\"},{\"action\":\"import\",\"defaultCheck\":false,\"describe\":\"导入\"},{\"action\":\"export\",\"defaultCheck\":false,\"describe\":\"导出\"}]',\n" +
+                "    'sptDaTypes': null,\n" +
+                "    'optionalFields': '[]',\n" +
+                "    'parents': null,\n" +
+                "    'type': 'default',\n" +
+                "    'deleted': 0,\n" +
+                "    'actions': [\n" +
+                "      'add',\n" +
+                "      'get'\n" +
+                "    ]\n" +
+                "  }\n" +
+                "  ]";
+        JSONArray role = JSONUtil.parseArray(roleStr);
         JSONObject result = new JSONObject();
         result.set("result", role);
         return result;

@@ -1,4 +1,4 @@
-package com.ultronvision.bigcats.common.entity;
+package com.ultronvision.bigcats.modules.cats.entity;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import lombok.Data;

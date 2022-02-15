@@ -1,13 +1,15 @@
 package com.ultronvision.bigcats.modules.cats.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.ultronvision.bigcats.common.entity.BaseController;
-import com.ultronvision.bigcats.common.entity.cats.SysMenu;
+import com.baomidou.mybatisplus.core.toolkit.StringPool;
+import com.ultronvision.bigcats.modules.cats.entity.BaseController;
+import com.ultronvision.bigcats.modules.cats.entity.SysMenu;
 import com.ultronvision.bigcats.modules.cats.service.ISysMenuService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -51,5 +53,13 @@ public class SysMenuController extends BaseController {
     @PostMapping
     public Boolean addMenu(@RequestBody SysMenu sysMenu) {
         return this.sysMenuService.save(sysMenu);
+    }
+
+    @DeleteMapping
+    public Boolean deleteMenu(@RequestBody String menuIds) {
+        System.out.println("menuIds:" + menuIds);
+        String[] ids = menuIds.split(StringPool.COMMA);
+        List<String> list = Arrays.asList(ids);
+        return this.sysMenuService.removeByIds(list);
     }
 }

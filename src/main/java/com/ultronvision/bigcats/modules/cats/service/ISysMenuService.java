@@ -1,7 +1,7 @@
 package com.ultronvision.bigcats.modules.cats.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ultronvision.bigcats.common.entity.cats.SysMenu;
+import com.ultronvision.bigcats.modules.cats.entity.SysMenu;
 
 import java.util.List;
 

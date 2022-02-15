@@ -1,6 +1,5 @@
-package com.ultronvision.bigcats.common.entity;
+package com.ultronvision.bigcats.modules.cats.entity;
 
-import com.ultronvision.bigcats.common.entity.cats.SysUser;
 import org.apache.shiro.SecurityUtils;
 
 /**
