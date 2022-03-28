@@ -4,13 +4,11 @@ import cn.hutool.core.util.RandomUtil;
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONObject;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
-import com.ultronvision.bigcats.modules.cats.entity.BaseController;
-import com.ultronvision.bigcats.modules.cats.entity.SysUser;
+import com.ultronvision.bigcats.common.oauth2.BigCatsSubject;
+import com.ultronvision.bigcats.modules.cats.entity.pojo.SysUser;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserService;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserTokenService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -33,7 +31,7 @@ import java.util.*;
 @RestController
 @RequestMapping("auth")
 @RequiredArgsConstructor
-public class AuthController extends BaseController {
+public class AuthController {
     private final ISysUserService sysUserService;
     private final ISysUserTokenService sysUserTokenService;
 
@@ -115,7 +113,7 @@ public class AuthController extends BaseController {
     @PostMapping("logout")
     public ResponseEntity<Map<String, Object>> logout() {
         Map<String, Object> map = new HashMap<>(1);
-        this.sysUserTokenService.logout(getUserId());
+        this.sysUserTokenService.logout(BigCatsSubject.getUserId());
         map.put("message", "注销成功");
         return ResponseEntity.ok(map);
     }

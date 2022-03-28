@@ -3,7 +3,7 @@ package com.ultronvision.bigcats.modules.cats.service.impl;
 import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ultronvision.bigcats.modules.cats.entity.SysUser;
+import com.ultronvision.bigcats.modules.cats.entity.pojo.SysUser;
 import com.ultronvision.bigcats.modules.cats.mapper.SysUserMapper;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserService;
 import lombok.RequiredArgsConstructor;

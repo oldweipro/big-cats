@@ -3,10 +3,10 @@ package com.ultronvision.bigcats.modules.cats.controller;
 import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import cn.hutool.json.JSONUtil;
+import com.ultronvision.bigcats.common.api.vo.ResultResponse;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author oldwei
@@ -612,6 +612,11 @@ public class SysRoleController {
         JSONObject result = new JSONObject();
         result.set("result", role);
         return result;
+    }
+
+    @PostMapping
+    public ResultResponse<JSONObject> add(@RequestBody JSONObject requestJson) {
+        return ResultResponse.ok();
     }
 
     @GetMapping("/getRole")

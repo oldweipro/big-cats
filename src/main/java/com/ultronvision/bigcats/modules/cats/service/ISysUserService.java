@@ -1,7 +1,7 @@
 package com.ultronvision.bigcats.modules.cats.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import com.ultronvision.bigcats.modules.cats.entity.SysUser;
+import com.ultronvision.bigcats.modules.cats.entity.pojo.SysUser;
 
 /**
  * @author oldwei

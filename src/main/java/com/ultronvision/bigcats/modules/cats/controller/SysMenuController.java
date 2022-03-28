@@ -2,8 +2,7 @@ package com.ultronvision.bigcats.modules.cats.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
-import com.ultronvision.bigcats.modules.cats.entity.BaseController;
-import com.ultronvision.bigcats.modules.cats.entity.SysMenu;
+import com.ultronvision.bigcats.modules.cats.entity.pojo.SysMenu;
 import com.ultronvision.bigcats.modules.cats.service.ISysMenuService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -20,7 +19,7 @@ import java.util.List;
 @RestController
 @RequestMapping("sys/menu")
 @RequiredArgsConstructor
-public class SysMenuController extends BaseController {
+public class SysMenuController {
     private final ISysMenuService sysMenuService;
 
     @GetMapping("tree")
@@ -57,7 +56,6 @@ public class SysMenuController extends BaseController {
 
     @DeleteMapping
     public Boolean deleteMenu(@RequestBody String menuIds) {
-        System.out.println("menuIds:" + menuIds);
         String[] ids = menuIds.split(StringPool.COMMA);
         List<String> list = Arrays.asList(ids);
         return this.sysMenuService.removeByIds(list);

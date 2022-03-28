@@ -1,7 +1,7 @@
 package com.ultronvision.bigcats.common.oauth2;
 
-import com.ultronvision.bigcats.modules.cats.entity.SysUser;
-import com.ultronvision.bigcats.modules.cats.entity.SysUserToken;
+import com.ultronvision.bigcats.modules.cats.entity.pojo.SysUser;
+import com.ultronvision.bigcats.modules.cats.entity.pojo.SysUserToken;
 import com.ultronvision.bigcats.modules.cats.service.IShiroService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

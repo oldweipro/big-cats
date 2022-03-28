@@ -1,7 +1,7 @@
 package com.ultronvision.bigcats.modules.cats.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ultronvision.bigcats.modules.cats.entity.SysUser;
+import com.ultronvision.bigcats.modules.cats.entity.pojo.SysUser;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;

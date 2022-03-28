@@ -8,9 +8,7 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.ultronvision.bigcats.modules.cats.entity.BaseController;
-import com.ultronvision.bigcats.modules.cats.entity.SysUser;
-import com.ultronvision.bigcats.common.util.BigCatsUtil;
+import com.ultronvision.bigcats.modules.cats.entity.pojo.SysUser;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +17,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 用户相关
@@ -31,7 +28,7 @@ import java.util.Map;
 @RestController
 @RequestMapping("sys/user")
 @RequiredArgsConstructor
-public class SysUserController extends BaseController {
+public class SysUserController {
     private final ISysUserService sysUserService;
 
     /**
@@ -416,7 +413,6 @@ public class SysUserController extends BaseController {
      */
     @GetMapping
     public ResponseEntity<IPage<SysUser>> user(SysUser sysUser) {
-        getUser();
         IPage<SysUser> sysUserPage = new Page<>(sysUser.getPageNo(), sysUser.getPageSize());
         // 创建条件构造器
         LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();

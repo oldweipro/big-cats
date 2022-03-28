@@ -2,7 +2,7 @@ package com.ultronvision.bigcats.modules.cats.service.impl;
 
 import cn.hutool.core.util.RandomUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.ultronvision.bigcats.modules.cats.entity.SysUserToken;
+import com.ultronvision.bigcats.modules.cats.entity.pojo.SysUserToken;
 import com.ultronvision.bigcats.modules.cats.mapper.SysUserTokenMapper;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserTokenService;
 import org.apache.shiro.SecurityUtils;
