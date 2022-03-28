@@ -9,6 +9,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -17,7 +18,7 @@ import java.util.Date;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-public class BaseEntity extends QueryRequest {
+public class BaseEntity extends QueryRequest implements Serializable {
     private static final long serialVersionUID = 3444128537672495830L;
     /**
      * 主键ID
