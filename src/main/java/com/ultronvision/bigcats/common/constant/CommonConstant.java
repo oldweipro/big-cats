@@ -9,4 +9,8 @@ public interface CommonConstant {
      * 多租户请求头
      */
     String TENANT_ID = "Tenant-Id";
+    /**
+     * token请求头
+     */
+    String ACCESS_TOKEN = "Access-Token";
 }

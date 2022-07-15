@@ -288,13 +288,13 @@ public class OtherController {
                 "\"data\": [{\n" +
                 "      \"id\": \"marketing\",\n" +
                 "      \"name\": \"营销管理\",\n" +
-                "      \"describe\": null,\n" +
+                "      \"describe\": \"\",\n" +
                 "      \"status\": 1,\n" +
                 "      \"actionData\": [{\"action\":\"query\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"详情\"},{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"},{\"action\":\"delete\",\"defaultCheck\":false,\"describe\":\"删除\"}],\n" +
-                "      \"sptDaTypes\": null,\n" +
-                "      \"optionalFields\": null,\n" +
-                "      \"parents\": null,\n" +
-                "      \"type\": null,\n" +
+                "      \"sptDaTypes\": \"\",\n" +
+                "      \"optionalFields\": \"\",\n" +
+                "      \"parents\": \"\",\n" +
+                "      \"type\": \"\",\n" +
                 "      \"deleted\": 0,\n" +
                 "      \"actions\": [\n" +
                 "        \"add\",\n" +
@@ -307,12 +307,12 @@ public class OtherController {
                 "    {\n" +
                 "      \"id\": \"member\",\n" +
                 "      \"name\": \"会员管理\",\n" +
-                "      \"describe\": null,\n" +
+                "      \"describe\": \"\",\n" +
                 "      \"status\": 1,\n" +
                 "      \"actionData\": [{\"action\":\"query\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"详情\"},{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"},{\"action\":\"delete\",\"defaultCheck\":false,\"describe\":\"删除\"}],\n" +
-                "      \"sptDaTypes\": null,\n" +
+                "      \"sptDaTypes\": \"\",\n" +
                 "      \"optionalFields\": [],\n" +
-                "      \"parents\": null,\n" +
+                "      \"parents\": \"\",\n" +
                 "      \"type\": \"default\",\n" +
                 "      \"deleted\": 0,\n" +
                 "      \"actions\": [\n" +
@@ -326,12 +326,12 @@ public class OtherController {
                 "    {\n" +
                 "      \"id\": \"menu\",\n" +
                 "      \"name\": \"菜单管理\",\n" +
-                "      \"describe\": null,\n" +
+                "      \"describe\": \"\",\n" +
                 "      \"status\": 1,\n" +
                 "      \"actionData\": [{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"import\",\"defaultCheck\":false,\"describe\":\"导入\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"}],\n" +
-                "      \"sptDaTypes\": null,\n" +
+                "      \"sptDaTypes\": \"\",\n" +
                 "      \"optionalFields\": [],\n" +
-                "      \"parents\": null,\n" +
+                "      \"parents\": \"\",\n" +
                 "      \"type\": \"default\",\n" +
                 "      \"deleted\": 0,\n" +
                 "      \"actions\": [\n" +
@@ -344,12 +344,12 @@ public class OtherController {
                 "    {\n" +
                 "      \"id\": \"order\",\n" +
                 "      \"name\": \"订单管理\",\n" +
-                "      \"describe\": null,\n" +
+                "      \"describe\": \"\",\n" +
                 "      \"status\": 1,\n" +
                 "      \"actionData\": [{\"action\":\"query\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"详情\"},{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"},{\"action\":\"delete\",\"defaultCheck\":false,\"describe\":\"删除\"}],\n" +
-                "      \"sptDaTypes\": null,\n" +
+                "      \"sptDaTypes\": \"\",\n" +
                 "      \"optionalFields\": [],\n" +
-                "      \"parents\": null,\n" +
+                "      \"parents\": \"\",\n" +
                 "      \"type\": \"default\",\n" +
                 "      \"deleted\": 0,\n" +
                 "      \"actions\": [\n" +
@@ -363,12 +363,12 @@ public class OtherController {
                 "    {\n" +
                 "      \"id\": \"permission\",\n" +
                 "      \"name\": \"权限管理\",\n" +
-                "      \"describe\": null,\n" +
+                "      \"describe\": \"\",\n" +
                 "      \"status\": 1,\n" +
                 "      \"actionData\": [{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"},{\"action\":\"delete\",\"defaultCheck\":false,\"describe\":\"删除\"}],\n" +
-                "      \"sptDaTypes\": null,\n" +
+                "      \"sptDaTypes\": \"\",\n" +
                 "      \"optionalFields\": [],\n" +
-                "      \"parents\": null,\n" +
+                "      \"parents\": \"\",\n" +
                 "      \"type\": \"default\",\n" +
                 "      \"deleted\": 0,\n" +
                 "      \"actions\": [\n" +
@@ -381,12 +381,12 @@ public class OtherController {
                 "    {\n" +
                 "      \"id\": \"role\",\n" +
                 "      \"name\": \"角色管理\",\n" +
-                "      \"describe\": null,\n" +
+                "      \"describe\": \"\",\n" +
                 "      \"status\": 1,\n" +
                 "      \"actionData\": [{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"查询\"},{\"action\":\"edit\",\"defaultCheck\":false,\"describe\":\"修改\"},{\"action\":\"delete\",\"defaultCheck\":false,\"describe\":\"删除\"}],\n" +
-                "      \"sptDaTypes\": null,\n" +
+                "      \"sptDaTypes\": \"\",\n" +
                 "      \"optionalFields\": [],\n" +
-                "      \"parents\": null,\n" +
+                "      \"parents\": \"\",\n" +
                 "      \"type\": \"default\",\n" +
                 "      \"deleted\": 0,\n" +
                 "      \"actions\": [\n" +
@@ -399,12 +399,12 @@ public class OtherController {
                 "    {\n" +
                 "      \"id\": \"test\",\n" +
                 "      \"name\": \"测试权限\",\n" +
-                "      \"describe\": null,\n" +
+                "      \"describe\": \"\",\n" +
                 "      \"status\": 1,\n" +
                 "      \"actionData\": [{\"action\":\"add\",\"defaultCheck\":false,\"describe\":\"新增\"},{\"action\":\"get\",\"defaultCheck\":false,\"describe\":\"详情\"}],\n" +
-                "      \"sptDaTypes\": null,\n" +
+                "      \"sptDaTypes\": \"\",\n" +
                 "      \"optionalFields\": [],\n" +
-                "      \"parents\": null,\n" +
+                "      \"parents\": \"\",\n" +
                 "      \"type\": \"default\",\n" +
                 "      \"deleted\": 0,\n" +
                 "      \"actions\": [\n" +
@@ -415,12 +415,12 @@ public class OtherController {
                 "    {\n" +
                 "      \"id\": \"user\",\n" +
                 "      \"name\": \"用户管理\",\n" +
-                "      \"describe\": null,\n" +
+                "      \"describe\": \"\",\n" +
                 "      \"status\": 1,\n" +
                 "      \"actionData\": [{\"action\":\"add\",\"describe\":\"新增\",\"defaultCheck\":false},{\"action\":\"get\",\"describe\":\"查询\",\"defaultCheck\":false}],\n" +
-                "      \"sptDaTypes\": null,\n" +
+                "      \"sptDaTypes\": \"\",\n" +
                 "      \"optionalFields\": [],\n" +
-                "      \"parents\": null,\n" +
+                "      \"parents\": \"\",\n" +
                 "      \"type\": \"default\",\n" +
                 "      \"deleted\": 0,\n" +
                 "      \"actions\": [\n" +

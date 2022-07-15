@@ -2,6 +2,7 @@ package com.ultronvision.bigcats.modules.cats.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
+import com.ultronvision.bigcats.common.api.vo.ResultResponse;
 import com.ultronvision.bigcats.modules.cats.entity.pojo.SysMenu;
 import com.ultronvision.bigcats.modules.cats.service.ISysMenuService;
 import lombok.RequiredArgsConstructor;
@@ -55,9 +56,16 @@ public class SysMenuController {
     }
 
     @DeleteMapping
-    public Boolean deleteMenu(@RequestBody String menuIds) {
+    public ResultResponse<JSONObject> deleteMenu(@RequestBody String menuIds) {
         String[] ids = menuIds.split(StringPool.COMMA);
         List<String> list = Arrays.asList(ids);
-        return this.sysMenuService.removeByIds(list);
+        // 判断哪些菜单有子菜单，哪些没有
+        List<Long> hasChildren = this.sysMenuService.hasChildren(list);
+        if (hasChildren.size() > 0) {
+            log.error("菜单 {} 存在子菜单，不允许删除", hasChildren);
+            return ResultResponse.error("菜单 " + hasChildren + " 存在子菜单，不允许删除");
+        }
+        this.sysMenuService.removeByIds(list);
+        return ResultResponse.ok("删除成功");
     }
 }

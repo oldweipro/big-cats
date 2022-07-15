@@ -49,4 +49,13 @@ public class SysMenuServiceImpl extends ServiceImpl<SysMenuMapper, SysMenu> impl
             sysMenuList.forEach(this::findAllChild);
         }
     }
+
+    @Override
+    public List<Long> hasChildren(List<String> list) {
+        // 判断哪些菜单有子菜单，哪些没有
+        LambdaQueryWrapper<SysMenu> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.in(SysMenu::getParentId, list);
+        List<SysMenu> sysMenuList = this.list(queryWrapper);
+        return sysMenuList.stream().map(SysMenu::getId).collect(java.util.stream.Collectors.toList());
+    }
 }

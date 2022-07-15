@@ -8,6 +8,8 @@ import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.StringPool;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.ultronvision.bigcats.common.api.dto.PageTableDTO;
+import com.ultronvision.bigcats.common.uitl.BigCatsUtil;
 import com.ultronvision.bigcats.modules.cats.entity.pojo.SysUser;
 import com.ultronvision.bigcats.modules.cats.service.ISysUserService;
 import lombok.RequiredArgsConstructor;
@@ -17,6 +19,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 用户相关
@@ -412,7 +415,7 @@ public class SysUserController {
      * @return
      */
     @GetMapping
-    public ResponseEntity<IPage<SysUser>> user(SysUser sysUser) {
+    public ResponseEntity<PageTableDTO<SysUser>> user(SysUser sysUser) {
         IPage<SysUser> sysUserPage = new Page<>(sysUser.getPageNo(), sysUser.getPageSize());
         // 创建条件构造器
         LambdaQueryWrapper<SysUser> lambdaQueryWrapper = new LambdaQueryWrapper<>();
@@ -422,7 +425,7 @@ public class SysUserController {
                 .le(StrUtil.isNotBlank(sysUser.getCreateTimeTo()), SysUser::getCreateTime, sysUser.getCreateTimeTo())
                 .orderByDesc(SysUser::getCreateTime);
         IPage<SysUser> page = this.sysUserService.page(sysUserPage, lambdaQueryWrapper);
-        return ResponseEntity.ok(page);
+        return ResponseEntity.ok(BigCatsUtil.getDataTable(page));
     }
 
     /**

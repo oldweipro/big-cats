@@ -16,10 +16,10 @@ spring:
           url: jdbc:mysql://rm-bp1yil63v8o82n5duxo.mysql.rds.aliyuncs.com:3306/big_cats?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
           username: big_cats
           password: sD8RzAj7kdxXndtb
-        hik:
-          url: jdbc:mysql://home.oldwei.com:3306/hik_dev?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
-          username: hik_dev
-          password: nSSHxybWRcm2PJAj
+#        hik:
+#          url: jdbc:mysql://nas.oldwei.com:3306/hik_dev?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai
+#          username: hik_dev
+#          password: nSSHxybWRcm2PJAj
 springfox:
   swagger2:
     enabled: true

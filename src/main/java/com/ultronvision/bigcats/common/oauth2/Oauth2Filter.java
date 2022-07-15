@@ -2,6 +2,7 @@ package com.ultronvision.bigcats.common.oauth2;
 
 import cn.hutool.core.util.StrUtil;
 import cn.hutool.json.JSONUtil;
+import com.ultronvision.bigcats.common.constant.CommonConstant;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.web.filter.authc.AuthenticatingFilter;
@@ -76,10 +77,10 @@ public class Oauth2Filter extends AuthenticatingFilter {
      */
     private String getRequestToken(HttpServletRequest httpRequest) {
         //从header中获取token
-        String token = httpRequest.getHeader("Access-Token");
+        String token = httpRequest.getHeader(CommonConstant.ACCESS_TOKEN);
         //如果header中不存在token，则从参数中获取token
         if (StrUtil.isBlank(token)) {
-            token = httpRequest.getParameter("Access-Token");
+            token = httpRequest.getParameter(CommonConstant.ACCESS_TOKEN);
         }
         return token;
     }
